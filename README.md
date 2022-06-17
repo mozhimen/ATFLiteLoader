@@ -1,2 +1,2 @@
-# TensorFlowLiteLoader
+# TFLiteLoader
 专为Android设计的TensorFlowLite加载库
