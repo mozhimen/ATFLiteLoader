@@ -4,8 +4,15 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven {
+            name 'ossrh-snapshot'
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
+        }
     }
 }
 rootProject.name = "app"
 include ':app'
 include ':tfliteloader'
+include ':tfliteloaderlabel'
+include ':baseloader'
+include ':tfloaderpb'

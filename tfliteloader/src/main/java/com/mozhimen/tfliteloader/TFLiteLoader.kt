@@ -6,9 +6,9 @@ import android.os.SystemClock
 import android.os.Trace
 import android.util.Log
 import com.mozhimen.basick.utilk.UtilKGlobal
-import com.mozhimen.tfliteloader.mos.ChipType
-import com.mozhimen.tfliteloader.mos.ModelType
-import com.mozhimen.tfliteloader.mos.Recognition
+import com.mozhimen.baseloader.mos.ChipType
+import com.mozhimen.baseloader.mos.ModelType
+import com.mozhimen.baseloader.mos.Recognition
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.metadata.MetadataExtractor
@@ -18,7 +18,6 @@ import org.tensorflow.lite.task.vision.classifier.Classifications
 import org.tensorflow.lite.task.vision.classifier.ImageClassifier
 import org.tensorflow.lite.task.vision.classifier.ImageClassifier.ImageClassifierOptions
 import java.io.IOException
-import java.lang.UnsupportedOperationException
 import java.util.ArrayList
 
 /**
@@ -39,7 +38,6 @@ import java.util.ArrayList
 open class TFLiteLoader(
     modelPath: String,
     resultSize: Int,
-    modelType: ModelType,
     chipType: ChipType,
     numThreads: Int
 ) {
@@ -60,25 +58,22 @@ open class TFLiteLoader(
         fun create(
             modelPath: String,
             resultSize: Int = 1,
-            modelType: ModelType = ModelType.QUANTIZED_MOBILENET,
+            modelType: ModelType = ModelType.QUANTIZED_EFFICIENTNET,
             chipType: ChipType = ChipType.CPU,
             numThreads: Int = 1
         ): TFLiteLoader {
             return when (modelType) {
                 ModelType.QUANTIZED_MOBILENET -> {
-                    TFLiteLoaderQuantizedMobileNet( device, numThreads)
+                    TFLiteLoaderQuantizedMobileNet(modelPath, resultSize, chipType, numThreads)
                 }
                 ModelType.FLOAT_MOBILENET -> {
-                    TFLiteLoaderFloatMobileNet(, device, numThreads)
+                    TFLiteLoaderFloatMobileNet(modelPath, resultSize, chipType, numThreads)
                 }
                 ModelType.FLOAT_EFFICIENTNET -> {
-                    TFLiteLoaderFloatEfficientNet(, device, numThreads)
+                    TFLiteLoaderFloatEfficientNet(modelPath, resultSize, chipType, numThreads)
                 }
                 ModelType.QUANTIZED_EFFICIENTNET -> {
-                    TFLiteLoaderQuantizedEfficientNet(, device, numThreads)
-                }
-                else -> {
-                    throw UnsupportedOperationException()
+                    TFLiteLoaderQuantizedEfficientNet(modelPath, resultSize, chipType, numThreads)
                 }
             }
         }

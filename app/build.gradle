@@ -28,8 +28,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         dataBinding true
+    }
+
+    aaptOptions {
+        noCompress "tflite","pb"
     }
 }
 
@@ -37,7 +41,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     implementation 'com.github.mozhimen.SwiftKit:basick:1.1.1'
-    implementation 'com.github.mozhimen.SwiftKit:abilityk:1.1.1'
+    implementation('com.github.mozhimen.SwiftKit:abilityk:1.1.1') {
+        exclude group: 'com.mozhimen.abilityk.scank'
+        exclude group: 'com.huawei.hms'
+    }
     implementation 'com.github.mozhimen.SwiftKit:componentk:1.1.1'
     implementation project(path: ':tfliteloader')
+    implementation project(path: ':tfliteloaderlabel')
+    implementation project(path: ':tfloaderpb')
 }

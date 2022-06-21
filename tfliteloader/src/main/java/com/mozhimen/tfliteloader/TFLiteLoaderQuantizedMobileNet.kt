@@ -1,7 +1,6 @@
 package com.mozhimen.tfliteloader
 
-import com.mozhimen.tfliteloader.mos.ChipType
-import com.mozhimen.tfliteloader.mos.ModelType
+import com.mozhimen.baseloader.mos.ChipType
 
 /**
  * @ClassName TFLiteLoaderQuantizedMobileNet
@@ -13,9 +12,8 @@ import com.mozhimen.tfliteloader.mos.ModelType
 class TFLiteLoaderQuantizedMobileNet(
     modelPath: String,
     resultSize: Int,
-    modelType: ModelType,
     chipType: ChipType,
     numThreads: Int
-) : TFLiteLoader(modelPath, resultSize, modelType, chipType, numThreads) {
+) : TFLiteLoader(modelPath, resultSize, chipType, numThreads) {
     
 }
