@@ -11,7 +11,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "app"
-include ':app'
+include ':exam'
 include ':tfliteloader'
 include ':tfliteloaderlabel'
 include ':baseloader'

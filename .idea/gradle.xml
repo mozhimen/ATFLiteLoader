@@ -11,8 +11,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baseloader" />
+            <option value="$PROJECT_DIR$/exam" />
             <option value="$PROJECT_DIR$/tfliteloader" />
             <option value="$PROJECT_DIR$/tfliteloaderlabel" />
             <option value="$PROJECT_DIR$/tfloaderpb" />
