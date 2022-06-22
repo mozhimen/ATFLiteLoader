@@ -14,7 +14,9 @@ import java.util.*
 
 /**
  * @ClassName TFlLoaderPb
- * @Description TODO
+ * @Description 一个专门使用TensorFlow pb来标记图像的加载器
+ * 此方法仅限于你的tensorflow版本低于1.13.1
+ * 不然会报错Failed to load model from 'output_graph.pb'
  * @Author mozhimen / Kolin Zhao
  * @Date 2022/6/21 11:11
  * @Version 1.0
@@ -34,7 +36,8 @@ class TFLoaderPb(
 
     /*private val MAX_RESULTS = 3
     private val THRESHOLD = 0.1f*/
-    private var _inferenceInterface: TensorFlowInferenceInterface = TensorFlowInferenceInterface(assetManager, modelPath)
+    private var _inferenceInterface: TensorFlowInferenceInterface =
+        TensorFlowInferenceInterface(assetManager, modelPath)
 
     // Pre-allocated buffers.
     private val _intValues: IntArray
@@ -79,7 +82,18 @@ class TFLoaderPb(
                 labels.add(line)
             }
             bufferedReader.close()
-            return TFLoaderPb(modelPath, labels, assetManager, inputName, inputSize, outputName, imageMean, imageStd, threshold, resNum)
+            return TFLoaderPb(
+                modelPath,
+                labels,
+                assetManager,
+                inputName,
+                inputSize,
+                outputName,
+                imageMean,
+                imageStd,
+                threshold,
+                resNum
+            )
         }
     }
 

@@ -27,8 +27,9 @@ import java.io.IOException
 import java.util.*
 
 /**
- * @ClassName TFLiteLoader2
- * @Description 一个专门使用TensorFlow Lite来标记图像的加载器。
+ * @ClassName TFLiteLoaderLabel
+ * @Description 一个专门使用TensorFlow Lite来标记图像的加载器
+ * 适配采用tensorflow训练的pb转化而来的tflite文件,例如toco工具
  * A loader specialized to label images using TensorFlow Lite.
  * you need add in app build gradle
  * android {
@@ -176,7 +177,10 @@ abstract class TFLiteLoaderLabel(
         val probabilityTensorIndex = 0
         val probabilityShape = _tflite.getOutputTensor(probabilityTensorIndex).shape() // {1, NUM_CLASSES}
         val probabilityDataType = _tflite.getOutputTensor(probabilityTensorIndex).dataType()
-        Log.d(TAG, "init: _imageSizeY $_imageSizeY _imageSizeX $_imageSizeX imageDataType $imageDataType probabilityShape $probabilityShape probabilityDataType $probabilityDataType")
+        Log.d(
+            TAG,
+            "init: _imageSizeY $_imageSizeY _imageSizeX $_imageSizeX imageDataType $imageDataType probabilityShape $probabilityShape probabilityDataType $probabilityDataType"
+        )
 
         // Creates the input tensor.
         _inputImageBuffer = TensorImage(imageDataType)
@@ -223,8 +227,9 @@ abstract class TFLiteLoaderLabel(
         )
 
         // Gets the map of label and probability.
-        val labeledProbability: Map<String, Float> = TensorLabel(_labels, _probabilityProcessor.process(_outputProbabilityBuffer))
-            .mapWithFloatValue
+        val labeledProbability: Map<String, Float> =
+            TensorLabel(_labels, _probabilityProcessor.process(_outputProbabilityBuffer))
+                .mapWithFloatValue
         Trace.endSection()
 
         // Gets top-k results.

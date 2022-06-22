@@ -18,13 +18,16 @@ import com.mozhimen.basick.utilk.UtilKBitmap
 import com.mozhimen.componentk.permissionk.PermissionK
 import com.mozhimen.componentk.permissionk.annors.PermissionKAnnor
 import com.mozhimen.tfliteloader.TFLiteLoader
+import com.mozhimen.tfliteloaderlabel.TFLiteLoaderLabel
+import com.mozhimen.tfloaderpb.TFLoaderPb
 import java.util.concurrent.locks.ReentrantLock
 
 @PermissionKAnnor(permissions = [Manifest.permission.CAMERA])
 class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout.activity_main) {
     private lateinit var _tfLiteLoader: TFLiteLoader
-//    private lateinit var _tfLiteLoaderLabel: TFLiteLoaderLabel
+    //private lateinit var _tfLiteLoaderLabel: TFLiteLoaderLabel
     //private lateinit var _tfLoaderPb: TFLoaderPb
+
     override fun initData(savedInstanceState: Bundle?) {
         PermissionK.initPermissions(this) {
             if (it) {
@@ -41,8 +44,8 @@ class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout
     }
 
     private fun initLiteLoader() {
-        _tfLiteLoader = TFLiteLoader.create("model.tflite", modelType = ModelType.QUANTIZED_MOBILENET)
-        //_tfLiteLoader = TFLiteLoader2.create("uint8.tflite", "label.txt", modelType = com.mozhimen.tfliteloader2.mos.ModelType.QUANTIZED_MOBILENET)
+        _tfLiteLoader = TFLiteLoader.create("model.tflite")
+        //_tfLiteLoaderLabel = TFLiteLoaderLabel.create("?", "labels.txt", modelType = ModelType.QUANTIZED_EFFICIENTNET)
         //_tfLoaderPb = TFLoaderPb.create("output_graph.pb", "output_labels.txt", assets, "input", 299, "output", 128f, 128f, 0.1f, 1)
     }
 
@@ -67,7 +70,7 @@ class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout
                     }
                     val rotateBitmap = UtilKBitmap.rotateBitmap(bitmap, 90)
 
-                    val objList = _tfLiteLoader.recognizeImage(rotateBitmap,0)
+                    val objList = _tfLiteLoader.recognizeImage(rotateBitmap, 0)
                     Log.d(TAG, "analyze: $objList")
                     runOnUiThread {
                         if (objList.isEmpty()) return@runOnUiThread

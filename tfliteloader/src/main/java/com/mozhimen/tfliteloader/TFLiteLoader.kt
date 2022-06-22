@@ -22,7 +22,7 @@ import java.util.ArrayList
 
 /**
  * @ClassName TFLiteLoader
- * @Description 一个专门使用TensorFlow Lite来标记图像的加载器。
+ * @Description 一个专门使用TensorFlow Lite来标记图像的加载器。适配于采用tflite_model_maker构建的tflite
  * A loader specialized to label images using TensorFlow Lite.
  * you need add in app build gradle
  * android {
@@ -58,24 +58,10 @@ open class TFLiteLoader(
         fun create(
             modelPath: String,
             resultSize: Int = 1,
-            modelType: ModelType = ModelType.QUANTIZED_EFFICIENTNET,
             chipType: ChipType = ChipType.CPU,
             numThreads: Int = 1
         ): TFLiteLoader {
-            return when (modelType) {
-                ModelType.QUANTIZED_MOBILENET -> {
-                    TFLiteLoaderQuantizedMobileNet(modelPath, resultSize, chipType, numThreads)
-                }
-                ModelType.FLOAT_MOBILENET -> {
-                    TFLiteLoaderFloatMobileNet(modelPath, resultSize, chipType, numThreads)
-                }
-                ModelType.FLOAT_EFFICIENTNET -> {
-                    TFLiteLoaderFloatEfficientNet(modelPath, resultSize, chipType, numThreads)
-                }
-                ModelType.QUANTIZED_EFFICIENTNET -> {
-                    TFLiteLoaderQuantizedEfficientNet(modelPath, resultSize, chipType, numThreads)
-                }
-            }
+            return TFLiteLoader(modelPath, resultSize, chipType, numThreads)
         }
     }
 
