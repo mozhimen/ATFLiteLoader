@@ -20,6 +20,7 @@ import com.mozhimen.componentk.permissionk.annors.PermissionKAnnor
 import com.mozhimen.tfliteloader.TFLiteLoader
 import com.mozhimen.tfliteloaderlabel.TFLiteLoaderLabel
 import com.mozhimen.tfloaderpb.TFLoaderPb
+import java.lang.StringBuilder
 import java.util.concurrent.locks.ReentrantLock
 
 @PermissionKAnnor(permissions = [Manifest.permission.CAMERA])
@@ -44,7 +45,7 @@ class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout
     }
 
     private fun initLiteLoader() {
-        _tfLiteLoader = TFLiteLoader.create("model.tflite")
+        _tfLiteLoader = TFLiteLoader.create("model.tflite", resultSize = 3)
         //_tfLiteLoaderLabel = TFLiteLoaderLabel.create("?", "labels.txt", modelType = ModelType.QUANTIZED_EFFICIENTNET)
         //_tfLoaderPb = TFLoaderPb.create("output_graph.pb", "output_labels.txt", assets, "input", 299, "output", 128f, 128f, 0.1f, 1)
     }
@@ -58,6 +59,7 @@ class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout
     private val _frameAnalyzer: ImageAnalysis.Analyzer by lazy {
         object : ImageAnalysis.Analyzer {
             private val _reentrantLock = ReentrantLock()
+            private val _stringBuilder = StringBuilder()
 
             @SuppressLint("UnsafeOptInUsageError", "SetTextI18n")
             override fun analyze(image: ImageProxy) {
@@ -74,7 +76,11 @@ class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout
                     Log.d(TAG, "analyze: $objList")
                     runOnUiThread {
                         if (objList.isEmpty()) return@runOnUiThread
-                        vb.mainRes.text = "${objList[0].title}: ${objList[0].confidence}"
+                        objList.forEachIndexed { index, _ ->
+                            _stringBuilder.append("${objList[index].title}: ${objList[index].confidence}").append(" ")
+                        }
+                        vb.mainRes.text = _stringBuilder.toString()
+                        _stringBuilder.clear()
                     }
                 } finally {
                     _reentrantLock.unlock()
