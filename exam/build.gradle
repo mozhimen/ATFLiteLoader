@@ -46,7 +46,6 @@ dependencies {
         exclude group: 'com.huawei.hms'
     }
     implementation 'com.github.mozhimen.SwiftKit:componentk:1.1.1'
-    implementation project(path: ':tfliteloader')
-    implementation project(path: ':tfliteloaderlabel')
-    implementation project(path: ':tfloaderpb')
+
+    implementation project(path: ':imageclassifier')
 }

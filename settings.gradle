@@ -10,9 +10,7 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "app"
+rootProject.name = "tfLiteLoader"
 include ':exam'
-include ':tfliteloader'
-include ':tfliteloaderlabel'
-include ':baseloader'
-include ':tfloaderpb'
+include ':imageclassifier'
+include ':tfloader'

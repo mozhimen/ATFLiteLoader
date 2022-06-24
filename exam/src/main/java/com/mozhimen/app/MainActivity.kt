@@ -11,23 +11,20 @@ import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.mozhimen.abilityk.cameraxk.helpers.ImageConverter
 import com.mozhimen.app.databinding.ActivityMainBinding
-import com.mozhimen.baseloader.mos.ModelType
 import com.mozhimen.basick.basek.BaseKActivity
 import com.mozhimen.basick.basek.BaseKViewModel
 import com.mozhimen.basick.utilk.UtilKBitmap
 import com.mozhimen.componentk.permissionk.PermissionK
 import com.mozhimen.componentk.permissionk.annors.PermissionKAnnor
-import com.mozhimen.tfliteloader.TFLiteLoader
-import com.mozhimen.tfliteloaderlabel.TFLiteLoaderLabel
-import com.mozhimen.tfloaderpb.TFLoaderPb
+import com.mozhimen.classifyloader.tflite.TFLiteImageClassifier
 import java.lang.StringBuilder
 import java.util.concurrent.locks.ReentrantLock
 
 @PermissionKAnnor(permissions = [Manifest.permission.CAMERA])
 class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout.activity_main) {
-    private lateinit var _tfLiteLoader: TFLiteLoader
-    //private lateinit var _tfLiteLoaderLabel: TFLiteLoaderLabel
-    //private lateinit var _tfLoaderPb: TFLoaderPb
+    private lateinit var _tfLiteImageClassifier: TFLiteImageClassifier
+    //private lateinit var _tfLiteLoaderLabel: TFLiteLabelImageClassifier
+    //private lateinit var _tfLoaderPb: TFImageClassifier
 
     override fun initData(savedInstanceState: Bundle?) {
         PermissionK.initPermissions(this) {
@@ -45,9 +42,9 @@ class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout
     }
 
     private fun initLiteLoader() {
-        _tfLiteLoader = TFLiteLoader.create("model.tflite", resultSize = 3)
-        //_tfLiteLoaderLabel = TFLiteLoaderLabel.create("?", "labels.txt", modelType = ModelType.QUANTIZED_EFFICIENTNET)
-        //_tfLoaderPb = TFLoaderPb.create("output_graph.pb", "output_labels.txt", assets, "input", 299, "output", 128f, 128f, 0.1f, 1)
+        _tfLiteImageClassifier = TFLiteImageClassifier.create("health_model.tflite", resultSize = 3)
+        //_tfLiteLoaderLabel = TFLiteLabelImageClassifier.create("?", "labels.txt", modelType = ModelType.QUANTIZED_EFFICIENTNET)
+        //_tfLoaderPb = TFImageClassifier.create("output_graph.pb", "output_labels.txt", assets, "input", 299, "output", 128f, 128f, 0.1f, 1)
     }
 
     private fun initCamera() {
@@ -72,7 +69,7 @@ class MainActivity : BaseKActivity<ActivityMainBinding, BaseKViewModel>(R.layout
                     }
                     val rotateBitmap = UtilKBitmap.rotateBitmap(bitmap, 90)
 
-                    val objList = _tfLiteLoader.recognizeImage(rotateBitmap, 0)
+                    val objList = _tfLiteImageClassifier.recognizeImage(rotateBitmap, 0)
                     Log.d(TAG, "analyze: $objList")
                     runOnUiThread {
                         if (objList.isEmpty()) return@runOnUiThread
