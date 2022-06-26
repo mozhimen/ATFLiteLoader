@@ -5,7 +5,7 @@ import android.os.SystemClock
 import android.os.Trace
 import android.util.Log
 import com.mozhimen.baseloader.mos.ChipType
-import com.mozhimen.baseloader.mos.ModelType
+import com.mozhimen.classifyloader.mos.ModelType
 import com.mozhimen.baseloader.mos.Recognition
 import com.mozhimen.basick.utilk.UtilKGlobal
 import org.tensorflow.lite.Interpreter
@@ -67,21 +67,21 @@ abstract class TFLiteLabelImageClassifier(
             modelPath: String,
             labelPath: String,
             resultSize: Int = 1,
-            modelType: ModelType = ModelType.QUANTIZED_EFFICIENTNET,
+            modelType: ModelType = ModelType.QUANTIZED_EFFICIENT_NET,
             chipType: ChipType = ChipType.CPU,
             numThreads: Int = 1
         ): TFLiteLabelImageClassifier {
             return when (modelType) {
-                ModelType.QUANTIZED_MOBILENET -> {
+                ModelType.QUANTIZED_MOBILE_NET -> {
                     TFLiteLabelImageClassifierQuantizedMobileNet(modelPath, labelPath, resultSize, chipType, numThreads)
                 }
-                ModelType.FLOAT_MOBILENET -> {
+                ModelType.FLOAT_MOBILE_NET -> {
                     TFLiteLabelImageClassifierFloatMobileNet(modelPath, labelPath, resultSize, chipType, numThreads)
                 }
-                ModelType.FLOAT_EFFICIENTNET -> {
+                ModelType.FLOAT_EFFICIENT_NET -> {
                     TFLiteLabelImageClassifierFloatEfficientNet(modelPath, labelPath, resultSize, chipType, numThreads)
                 }
-                ModelType.QUANTIZED_EFFICIENTNET -> {
+                ModelType.QUANTIZED_EFFICIENT_NET -> {
                     TFLiteLabelImageClassifierQuantizedEfficientNet(modelPath, labelPath, resultSize, chipType, numThreads)
                 }
             }
@@ -201,7 +201,7 @@ abstract class TFLiteLabelImageClassifier(
      * @param sensorOrientation Int
      * @return List<Recognition>
      */
-    fun recognizeImage(bitmap: Bitmap, sensorOrientation: Int): List<Recognition> {
+    fun classify(bitmap: Bitmap, sensorOrientation: Int): List<Recognition> {
         // Logs this method so that it can be analyzed with systrace.
         Trace.beginSection("recognizeImage")
 

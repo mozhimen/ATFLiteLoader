@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.os.Trace
 import android.util.Log
 import com.mozhimen.baseloader.mos.Recognition
+import com.mozhimen.basick.utilk.UtilKGlobal
 import org.tensorflow.Operation
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface
 import java.io.BufferedReader
@@ -24,7 +25,6 @@ import java.util.*
 class TFImageClassifier(
     modelPath: String,
     private val _labels: Vector<String>,
-    assetManager: AssetManager,
     private val _inputName: String,
     private val _inputSize: Int,
     private val _outputName: String,
@@ -37,7 +37,7 @@ class TFImageClassifier(
     /*private val MAX_RESULTS = 3
     private val THRESHOLD = 0.1f*/
     private var _inferenceInterface: TensorFlowInferenceInterface =
-        TensorFlowInferenceInterface(assetManager, modelPath)
+        TensorFlowInferenceInterface(UtilKGlobal.instance.getApp()!!.assets, modelPath)
 
     // Pre-allocated buffers.
     private val _intValues: IntArray
@@ -85,7 +85,6 @@ class TFImageClassifier(
             return TFImageClassifier(
                 modelPath,
                 labels,
-                assetManager,
                 inputName,
                 inputSize,
                 outputName,
@@ -110,7 +109,7 @@ class TFImageClassifier(
         _outputs = FloatArray(numClasses)
     }
 
-    fun recognizeImage(bitmap: Bitmap): List<Recognition> {
+    fun classify(bitmap: Bitmap): List<Recognition> {
         // Log this method so that it can be analyzed with systrace.
         Trace.beginSection("recognizeImage")
         Trace.beginSection("preprocessBitmap")

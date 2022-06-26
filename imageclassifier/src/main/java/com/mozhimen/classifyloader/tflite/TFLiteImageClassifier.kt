@@ -108,7 +108,7 @@ open class TFLiteImageClassifier(
      * @param sensorOrientation Int
      * @return List<Recognition>
      */
-    fun recognizeImage(bitmap: Bitmap, sensorOrientation: Int): List<Recognition> {
+    fun classify(bitmap: Bitmap, sensorOrientation: Int): List<Recognition> {
         // 将该方法记录为日志, 以便使用systrace进行分析 Logs this method so that it can be analyzed with systrace.
         Trace.beginSection("recognizeImage")
         val inputImage = TensorImage.fromBitmap(bitmap)

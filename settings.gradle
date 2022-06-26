@@ -14,3 +14,4 @@ rootProject.name = "tfLiteLoader"
 include ':exam'
 include ':imageclassifier'
 include ':tfloader'
+include ':objectdetector'
