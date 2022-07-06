@@ -29,13 +29,14 @@ android {
 }
 
 dependencies {
-    api fileTree(include: ['*.jar','*.aar'], dir: 'libs')
     api 'com.github.mozhimen.SwiftKit:basick:1.1.1'
     api('com.github.mozhimen.SwiftKit:abilityk:1.1.1'){
         exclude group: 'com.mozhimen.abilityk.scank'
         exclude group: 'com.huawei.hms'
     }
     //tflite
+    api project(path: ':tflitegpu')
+    api project(path: ':tfandroid')
     api 'org.tensorflow:tensorflow-lite:2.7.0'
     api 'org.tensorflow:tensorflow-lite-task-vision:0.3.0'
     api 'org.tensorflow:tensorflow-lite-metadata:0.3.0'

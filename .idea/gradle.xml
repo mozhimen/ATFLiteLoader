@@ -14,10 +14,11 @@
             <option value="$PROJECT_DIR$/exam" />
             <option value="$PROJECT_DIR$/imageclassifier" />
             <option value="$PROJECT_DIR$/objectdetector" />
+            <option value="$PROJECT_DIR$/tfandroid" />
+            <option value="$PROJECT_DIR$/tflitegpu" />
             <option value="$PROJECT_DIR$/tfloader" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
