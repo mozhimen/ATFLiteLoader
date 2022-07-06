@@ -72,7 +72,7 @@ class ObjectDetectionActivity :
     private fun initLiteLoader() {
         _tfLiteObjectDetector =
             TFLiteObjectDetector.create(
-                "efficientdet_lite0_200_2.tflite",
+                "efficientdet-lite4.tflite",
                 listener = _objectDetectorListener,
                 resultSize = 200,
                 threshold = 0.29f
