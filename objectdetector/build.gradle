@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -30,4 +31,21 @@ android {
 
 dependencies {
     api project(path: ':tfloader')
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.mozhimen.objectdetector'
+                artifactId = 'objectdetector'
+                version = '1.0.0'
+            }
+            debug(MavenPublication) {
+                groupId = 'com..mozhimen.objectdetector'
+                artifactId = 'objectdetector'
+                version = '1.0.0'
+            }
+        }
+    }
 }

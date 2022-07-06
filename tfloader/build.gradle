@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -43,4 +44,21 @@ dependencies {
     //tflitelabel
     api 'org.tensorflow:tensorflow-lite:0.0.0-nightly-SNAPSHOT'
     api 'org.tensorflow:tensorflow-lite-support:0.3.0'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.mozhimen.tfloader'
+                artifactId = 'tfloader'
+                version = '1.0.0'
+            }
+            debug(MavenPublication) {
+                groupId = 'com..mozhimen.tfloader'
+                artifactId = 'tfloader'
+                version = '1.0.0'
+            }
+        }
+    }
 }
