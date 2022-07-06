@@ -1,2 +1,16 @@
+apply plugin: "maven-publish"
+
 configurations.maybeCreate("default")
-artifacts.add("default",file('tensorflow-lite-gpu-2.9.0.aar'))
+artifacts.add("default", file('tensorflow-lite-gpu-2.9.0.aar'))
+
+afterEvaluate {
+    publishing {
+        publications {
+            aar(MavenPublication) {
+                groupId = 'com.mozhimen.tflitegpu'
+                artifactId = 'tflitegpu'
+                version = '1.0.0'
+            }
+        }
+    }
+}
