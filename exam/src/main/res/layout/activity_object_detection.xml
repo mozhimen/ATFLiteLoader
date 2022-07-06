@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data />
 
@@ -14,9 +15,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.mozhimen.objectdetector.TFLiteObjectDetectorOverlay
+        <com.mozhimen.objectdetector.ViewKOverlay
             android:id="@+id/object_detection_overlay"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:viewKOverlayRect_isShowLabel="false"
+            app:viewKOverlayRect_boxType="circle"
+            app:viewKOverlayRect_boxLineColor="@android:color/holo_red_dark"
+            app:viewKOverlayRect_boxLineWidth="2dp" />
+
+        <TextView
+            android:id="@+id/object_detection_txt_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="italic" />
     </FrameLayout>
 </layout>

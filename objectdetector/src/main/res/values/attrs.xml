@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewKOverlay">
+        <attr name="viewKOverlayRect_isShowLabel" format="boolean" />
+        <attr name="viewKOverlayRect_labelTextSize" format="dimension|reference" />
+        <attr name="viewKOverlayRect_labelTextColor" format="color|reference" />
+        <attr name="viewKOverlayRect_labelBackgroundColor" format="color|reference" />
+        <attr name="viewKOverlayRect_boxType" format="enum">
+            <enum name="rect" value="0" />
+            <enum name="circle" value="1" />
+        </attr>
+        <attr name="viewKOverlayRect_boxLineWidth" format="dimension|reference" />
+        <attr name="viewKOverlayRect_boxLineColor" format="color|reference" />
+    </declare-styleable>
+</resources>
