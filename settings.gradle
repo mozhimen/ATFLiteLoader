@@ -12,8 +12,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "tfLiteLoader"
 include ':exam'
-include ':imageclassifier'
 include ':tfloader'
+include ':imageclassifier'
 include ':objectdetector'
-include ':tfandroid'
-include ':tflitegpu'
