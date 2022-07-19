@@ -13,18 +13,18 @@ import com.mozhimen.app.R
 import com.mozhimen.app.databinding.ActivityObjectDetectionBinding
 import com.mozhimen.basick.basek.BaseKActivity
 import com.mozhimen.basick.basek.BaseKViewModel
+import com.mozhimen.basick.extsk.showToast
 import com.mozhimen.basick.utilk.UtilKBitmap
-import com.mozhimen.basick.utilk.showToast
 import com.mozhimen.componentk.permissionk.PermissionK
 import com.mozhimen.componentk.permissionk.annors.PermissionKAnnor
 import com.mozhimen.componentk.statusbark.StatusBarK
 import com.mozhimen.componentk.statusbark.annors.StatusBarKAnnor
+import com.mozhimen.componentk.statusbark.annors.StatusBarKType
 import com.mozhimen.objectdetector.TFLiteObjectDetector
 import com.mozhimen.objectdetector.commons.IObjectDetectorListener
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.concurrent.locks.ReentrantLock
 
-@StatusBarKAnnor(isImmersed = true)
 @PermissionKAnnor(permissions = [Manifest.permission.CAMERA])
 class ObjectDetectionActivity :
     BaseKActivity<ActivityObjectDetectionBinding, BaseKViewModel>(R.layout.activity_object_detection) {
@@ -54,7 +54,6 @@ class ObjectDetectionActivity :
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        StatusBarK.initStatusBar(this)
         PermissionK.initPermissions(this) {
             if (it) {
                 initView(savedInstanceState)
@@ -93,14 +92,9 @@ class ObjectDetectionActivity :
             override fun analyze(image: ImageProxy) {
                 try {
                     _reentrantLock.lock()
-                    val bitmap: Bitmap = if (image.format == ImageFormat.YUV_420_888) {
-                        ImageConverter.yuv2Bitmap(image)!!
-                    } else {
-                        ImageConverter.jpeg2Bitmap(image)
-                    }
-                    val rotateBitmap = UtilKBitmap.rotateBitmap(bitmap, 90)
+                    val bitmap: Bitmap = ImageConverter.yuv2Bitmap(image)!!
 
-                    _tfLiteObjectDetector.detect(rotateBitmap, 0)
+                    _tfLiteObjectDetector.detect(bitmap, image.imageInfo.rotationDegrees)
                 } finally {
                     _reentrantLock.unlock()
                 }

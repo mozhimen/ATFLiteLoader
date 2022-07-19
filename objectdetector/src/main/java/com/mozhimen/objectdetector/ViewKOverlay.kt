@@ -36,7 +36,8 @@ class ViewKOverlay @JvmOverloads constructor(
     private var _boxLineWidth = 2f.dp2px()
     private var _boxLineColor = UtilKRes.getColor(R.color.blue_normal)
 
-    private var _scaleFactor: Float = 1f
+    private var _scaleFactorWidth: Float = 1f
+    private var _scaleFactorHeight: Float = 1f
     private var _results: List<Detection> = LinkedList<Detection>()
     private var _boxPaint = Paint()
     private var _textBackgroundPaint = Paint()
@@ -72,7 +73,8 @@ class ViewKOverlay @JvmOverloads constructor(
 
         // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
         // the size that the captured images will be displayed.
-        _scaleFactor = max(width * 1f / imageWidth, height * 1f / imageHeight)
+        _scaleFactorWidth = width * 1f / imageWidth
+        _scaleFactorHeight = height * 1f / imageHeight
         invalidate()
     }
 
@@ -106,10 +108,10 @@ class ViewKOverlay @JvmOverloads constructor(
         for (result in _results) {
             val boundingBox = result.boundingBox
 
-            val top = boundingBox.top * _scaleFactor
-            val bottom = boundingBox.bottom * _scaleFactor
-            val left = boundingBox.left * _scaleFactor
-            val right = boundingBox.right * _scaleFactor
+            val top = boundingBox.top * _scaleFactorHeight
+            val bottom = boundingBox.bottom * _scaleFactorHeight
+            val left = boundingBox.left * _scaleFactorWidth
+            val right = boundingBox.right * _scaleFactorWidth
 
             if (_boxType == BOX_TYPE_RECT) {
                 drawRect(canvas, left, top, right, bottom)
