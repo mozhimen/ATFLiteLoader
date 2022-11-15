@@ -1,4 +1,4 @@
-package com.mozhimen.app
+package com.mozhimen.tfliteloader
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

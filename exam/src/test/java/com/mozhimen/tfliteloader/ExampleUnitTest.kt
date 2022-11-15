@@ -1,4 +1,4 @@
-package com.mozhimen.app
+package com.mozhimen.tfliteloader
 
 import org.junit.Test
 

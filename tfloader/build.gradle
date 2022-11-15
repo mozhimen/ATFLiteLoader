@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk rootProject.android.compileSdk
 
     defaultConfig {
-        minSdk 21
-        targetSdk 31
+        minSdk rootProject.android.minSdk
+        targetSdk rootProject.android.targetSdk
 
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -29,11 +29,7 @@ android {
 }
 
 dependencies {
-    api 'com.github.mozhimen.SwiftKit:basick:1.1.1'
-    api('com.github.mozhimen.SwiftKit:abilityk:1.1.1'){
-        exclude group: 'com.mozhimen.abilityk.scank'
-        exclude group: 'com.huawei.hms'
-    }
+    implementation 'com.github.mozhimen.SwiftKit:basick:1.2.1'
     //tflite
     //api project(path: ':tflitegpu')
     //api project(path: ':tfandroid')

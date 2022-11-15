@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk rootProject.android.compileSdk
 
     defaultConfig {
-        minSdk 21
-        targetSdk 31
+        minSdk rootProject.android.minSdk
+        targetSdk rootProject.android.targetSdk
 
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -29,5 +29,6 @@ android {
 }
 
 dependencies {
+    implementation 'com.github.mozhimen.SwiftKit:basick:1.2.1'
     api project(path: ':tfloader')
 }

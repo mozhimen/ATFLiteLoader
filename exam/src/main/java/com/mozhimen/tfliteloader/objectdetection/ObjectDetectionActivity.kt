@@ -1,33 +1,27 @@
-package com.mozhimen.app.objectdetection
+package com.mozhimen.tfliteloader.objectdetection
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.graphics.ImageFormat
 import android.os.Bundle
-import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
-import com.mozhimen.abilityk.cameraxk.helpers.ImageConverter
-import com.mozhimen.app.R
-import com.mozhimen.app.databinding.ActivityObjectDetectionBinding
-import com.mozhimen.basick.basek.BaseKActivity
+import com.mozhimen.basick.basek.BaseKActivityVBVM
 import com.mozhimen.basick.basek.BaseKViewModel
 import com.mozhimen.basick.extsk.showToast
-import com.mozhimen.basick.utilk.UtilKBitmap
-import com.mozhimen.componentk.permissionk.PermissionK
-import com.mozhimen.componentk.permissionk.annors.PermissionKAnnor
-import com.mozhimen.componentk.statusbark.StatusBarK
-import com.mozhimen.componentk.statusbark.annors.StatusBarKAnnor
-import com.mozhimen.componentk.statusbark.annors.StatusBarKType
+import com.mozhimen.basick.permissionk.PermissionK
+import com.mozhimen.basick.permissionk.annors.APermissionK
+import com.mozhimen.componentk.cameraxk.annors.ACameraXKFacing
+import com.mozhimen.componentk.cameraxk.helpers.ImageConverter
 import com.mozhimen.objectdetector.TFLiteObjectDetector
 import com.mozhimen.objectdetector.commons.IObjectDetectorListener
+import com.mozhimen.tfliteloader.databinding.ActivityObjectDetectionBinding
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.concurrent.locks.ReentrantLock
 
-@PermissionKAnnor(permissions = [Manifest.permission.CAMERA])
+@APermissionK(permissions = [Manifest.permission.CAMERA])
 class ObjectDetectionActivity :
-    BaseKActivity<ActivityObjectDetectionBinding, BaseKViewModel>(R.layout.activity_object_detection) {
+    BaseKActivityVBVM<ActivityObjectDetectionBinding, BaseKViewModel>() {
 
     private lateinit var _tfLiteObjectDetector: TFLiteObjectDetector
     private val _objectDetectorListener: IObjectDetectorListener = object : IObjectDetectorListener {
@@ -79,7 +73,7 @@ class ObjectDetectionActivity :
     }
 
     private fun initCamera() {
-        vb.objectDetectionPreview.initCamera(this, CameraSelector.DEFAULT_BACK_CAMERA)
+        vb.objectDetectionPreview.initCamera(this, ACameraXKFacing.BACK)
         vb.objectDetectionPreview.setImageAnalyzer(_frameAnalyzer)
         vb.objectDetectionPreview.startCamera()
     }
@@ -102,5 +96,8 @@ class ObjectDetectionActivity :
                 image.close()
             }
         }
+    }
+
+    override fun bindViewVM(vb: ActivityObjectDetectionBinding) {
     }
 }

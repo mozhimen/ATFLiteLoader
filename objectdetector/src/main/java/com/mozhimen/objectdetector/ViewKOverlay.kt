@@ -3,13 +3,12 @@ package com.mozhimen.objectdetector
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import com.mozhimen.basick.basek.BaseKView
+import com.mozhimen.basick.basek.view.BaseKView
 import com.mozhimen.basick.extsk.dp2px
 import com.mozhimen.basick.extsk.sp2px
 import com.mozhimen.basick.utilk.UtilKRes
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.*
-import kotlin.math.max
 import kotlin.math.min
 
 /**
@@ -31,10 +30,10 @@ class ViewKOverlay @JvmOverloads constructor(
     private var _isShowLabel = true
     private var _labelTextSize = 16f.sp2px()
     private var _labelTextColor = Color.WHITE
-    private var _labelBackgroundColor = UtilKRes.getColor(R.color.blue_normal)
+    private var _labelBackgroundColor = UtilKRes.getColor(android.R.color.holo_blue_dark)
     private var _boxType = BOX_TYPE_RECT
     private var _boxLineWidth = 2f.dp2px()
-    private var _boxLineColor = UtilKRes.getColor(R.color.blue_normal)
+    private var _boxLineColor = UtilKRes.getColor(android.R.color.holo_blue_dark)
 
     private var _scaleFactorWidth: Float = 1f
     private var _scaleFactorHeight: Float = 1f

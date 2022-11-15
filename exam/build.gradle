@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk rootProject.android.compileSdk
 
     defaultConfig {
-        applicationId "com.mozhimen.app"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.android.applicationId
+        minSdk rootProject.android.minSdk
+        targetSdk rootProject.android.targetSdk
+        versionCode rootProject.android.versionCode
+        versionName rootProject.android.versionName
     }
 
     buildTypes {
@@ -40,12 +40,8 @@ android {
 dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    implementation 'com.github.mozhimen.SwiftKit:basick:1.1.3'
-    implementation('com.github.mozhimen.SwiftKit:abilityk:1.1.3') {
-        exclude group: 'com.mozhimen.abilityk.scank'
-        exclude group: 'com.huawei.hms'
-    }
-    implementation 'com.github.mozhimen.SwiftKit:componentk:1.1.3'
+    implementation 'com.github.mozhimen.SwiftKit:basick:1.2.1'
+    implementation 'com.github.mozhimen.SwiftKit:componentk:1.2.1'
 
     implementation project(path: ':imageclassifier')
     implementation project(path: ':objectdetector')
