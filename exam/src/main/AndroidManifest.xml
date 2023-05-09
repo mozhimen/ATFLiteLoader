@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
         <activity
-            android:name="com.mozhimen.tfliteloader.objectdetection.ObjectDetectionActivity"
+            android:name=".digitclassifier.DigitClassifierActivity"
             android:exported="false" />
         <activity
-            android:name="com.mozhimen.tfliteloader.imageclassifier.ImageClassifierActivity"
+            android:name=".objectdetection.ObjectDetectionActivity"
             android:exported="false" />
         <activity
-            android:name="com.mozhimen.tfliteloader.MainActivity"
+            android:name=".imageclassifier.ImageClassifierActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

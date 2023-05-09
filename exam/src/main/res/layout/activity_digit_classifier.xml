@@ -1,0 +1,42 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <com.mozhimen.digitclassifier.DrawView
+            android:id="@+id/digitCanvas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPredictedResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="预测结果"
+            app:layout_constraintTop_toBottomOf="@id/digitCanvas" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewResults"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/tvInferenceTime"
+            app:layout_constraintTop_toBottomOf="@id/tvPredictedResults" />
+
+        <TextView
+            android:id="@+id/tvInferenceTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/btnClear" />
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清除"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
