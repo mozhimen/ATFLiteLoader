@@ -5,9 +5,16 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="jbr-17" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
+            <option value="$USER_HOME$/Documents/GitHub/SwiftKit" />
+            <option value="$USER_HOME$/Documents/GitHub/SwiftKit/basick" />
+            <option value="$USER_HOME$/Documents/GitHub/SwiftKit/uicorek" />
+            <option value="$PROJECT_DIR$/../ACameraKit_CameraX" />
+            <option value="$PROJECT_DIR$/../ACameraKit_CameraX/camerak_camerax" />
+            <option value="$PROJECT_DIR$/../AUICoreKit" />
+            <option value="$PROJECT_DIR$/../AUICoreKit/viewk" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/digitclassifier" />
             <option value="$PROJECT_DIR$/exam" />
@@ -16,6 +23,7 @@
             <option value="$PROJECT_DIR$/tfloader" />
           </set>
         </option>
+        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

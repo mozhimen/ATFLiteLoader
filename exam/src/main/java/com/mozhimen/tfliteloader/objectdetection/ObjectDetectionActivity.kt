@@ -1,27 +1,31 @@
 package com.mozhimen.tfliteloader.objectdetection
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
-import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
-import com.mozhimen.basick.basek.BaseKActivityVBVM
-import com.mozhimen.basick.basek.BaseKViewModel
-import com.mozhimen.basick.extsk.showToast
-import com.mozhimen.basick.permissionk.PermissionK
-import com.mozhimen.basick.permissionk.annors.APermissionK
-import com.mozhimen.componentk.cameraxk.annors.ACameraXKFacing
-import com.mozhimen.componentk.cameraxk.helpers.ImageConverter
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.lintk.optins.permission.OPermission_CAMERA
+import com.mozhimen.basick.manifestk.cons.CPermission
+import com.mozhimen.basick.manifestk.permission.ManifestKPermission
+import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
+import com.mozhimen.basick.utilk.android.app.UtilKLaunchActivity
+import com.mozhimen.basick.utilk.android.widget.showToast
+import com.mozhimen.camerak.camerax.annors.ACameraKXFacing
+import com.mozhimen.camerak.camerax.annors.ACameraKXFormat
+import com.mozhimen.camerak.camerax.commons.ICameraXKFrameListener
+import com.mozhimen.camerak.camerax.mos.CameraKXConfig
+import com.mozhimen.camerak.camerax.utils.imageProxyRgba88882bitmapRgba8888
+import com.mozhimen.camerak.camerax.utils.imageProxyYuv4208882bitmapJpeg
 import com.mozhimen.objectdetector.TFLiteObjectDetector
 import com.mozhimen.objectdetector.commons.IObjectDetectorListener
 import com.mozhimen.tfliteloader.databinding.ActivityObjectDetectionBinding
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.concurrent.locks.ReentrantLock
 
-@APermissionK(permissions = [Manifest.permission.CAMERA])
+@APermissionCheck(CPermission.CAMERA)
 class ObjectDetectionActivity :
-    BaseKActivityVBVM<ActivityObjectDetectionBinding, BaseKViewModel>() {
+    BaseActivityVB<ActivityObjectDetectionBinding>() {
 
     private lateinit var _tfLiteObjectDetector: TFLiteObjectDetector
     private val _objectDetectorListener: IObjectDetectorListener = object : IObjectDetectorListener {
@@ -48,11 +52,11 @@ class ObjectDetectionActivity :
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        PermissionK.initPermissions(this) {
+        ManifestKPermission.requestPermissions(this) {
             if (it) {
-                initView(savedInstanceState)
+                super.initData(savedInstanceState)
             } else {
-                PermissionK.applySetting(this)
+                UtilKLaunchActivity.startSettingAppDetails(this)
             }
         }
     }
@@ -72,32 +76,39 @@ class ObjectDetectionActivity :
             )
     }
 
+    @OptIn(OPermission_CAMERA::class)
     private fun initCamera() {
-        vb.objectDetectionPreview.initCamera(this, ACameraXKFacing.BACK)
-        vb.objectDetectionPreview.setImageAnalyzer(_frameAnalyzer)
-        vb.objectDetectionPreview.startCamera()
+        vb.objectDetectionPreview.apply {
+            initCameraKX(this@ObjectDetectionActivity, CameraKXConfig(_format, ACameraKXFacing.BACK))
+            setCameraXFrameListener(_cameraKXFrameListener)
+        }
     }
 
-    private val _frameAnalyzer: ImageAnalysis.Analyzer by lazy {
-        object : ImageAnalysis.Analyzer {
+    private val _format = ACameraKXFormat.YUV_420_888
+
+    private var _outputBitmap: Bitmap? = null
+
+    private val _cameraKXFrameListener: ICameraXKFrameListener by lazy {
+        object : ICameraXKFrameListener {
             private val _reentrantLock = ReentrantLock()
 
             @SuppressLint("UnsafeOptInUsageError", "SetTextI18n")
-            override fun analyze(image: ImageProxy) {
+            override fun invoke(imageProxy: ImageProxy) {
                 try {
                     _reentrantLock.lock()
-                    val bitmap: Bitmap = ImageConverter.yuv2Bitmap(image)!!
-
-                    _tfLiteObjectDetector.detect(bitmap, image.imageInfo.rotationDegrees)
+                    when (_format) {
+                        ACameraKXFormat.RGBA_8888 -> _outputBitmap = imageProxy.imageProxyRgba88882bitmapRgba8888()
+                        ACameraKXFormat.YUV_420_888 -> _outputBitmap = imageProxy.imageProxyYuv4208882bitmapJpeg()
+                    }
+                    if (_outputBitmap != null) {
+                        _tfLiteObjectDetector.detect(_outputBitmap!!, imageProxy.imageInfo.rotationDegrees)
+                    }
                 } finally {
                     _reentrantLock.unlock()
                 }
 
-                image.close()
+                imageProxy.close()
             }
         }
-    }
-
-    override fun bindViewVM(vb: ActivityObjectDetectionBinding) {
     }
 }

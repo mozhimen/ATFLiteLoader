@@ -7,7 +7,7 @@ import android.util.Log
 import com.mozhimen.baseloader.mos.ChipType
 import com.mozhimen.classifyloader.mos.ModelType
 import com.mozhimen.baseloader.mos.Recognition
-import com.mozhimen.basick.utilk.UtilKGlobal
+import com.mozhimen.basick.utilk.bases.BaseUtilK
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.gpu.GpuDelegate
@@ -48,7 +48,7 @@ abstract class TFLiteLabelImageClassifier(
     private val _resultSize: Int,
     chipType: ChipType,
     numThreads: Int
-) {
+) : BaseUtilK() {
     companion object {
         private const val TAG = "TFLiteLoader2>>>>>"
 
@@ -75,12 +75,15 @@ abstract class TFLiteLabelImageClassifier(
                 ModelType.QUANTIZED_MOBILE_NET -> {
                     TFLiteLabelImageClassifierQuantizedMobileNet(modelPath, labelPath, resultSize, chipType, numThreads)
                 }
+
                 ModelType.FLOAT_MOBILE_NET -> {
                     TFLiteLabelImageClassifierFloatMobileNet(modelPath, labelPath, resultSize, chipType, numThreads)
                 }
+
                 ModelType.FLOAT_EFFICIENT_NET -> {
                     TFLiteLabelImageClassifierFloatEfficientNet(modelPath, labelPath, resultSize, chipType, numThreads)
                 }
+
                 ModelType.QUANTIZED_EFFICIENT_NET -> {
                     TFLiteLabelImageClassifierQuantizedEfficientNet(modelPath, labelPath, resultSize, chipType, numThreads)
                 }
@@ -125,7 +128,6 @@ abstract class TFLiteLabelImageClassifier(
     /** Processer to apply post processing of the output probability.  */
     private var _probabilityProcessor: TensorProcessor
 
-    private val _context = UtilKGlobal.instance.getApp()!!
     private val _imageSizeX: Int//得到图像沿x轴的大小 Get the image size along the x axis.
     private val _imageSizeY: Int//得到图像沿y轴的大小 Get the image size along the y axis.
 
@@ -140,6 +142,7 @@ abstract class TFLiteLabelImageClassifier(
                 _nnApiDelegate = NnApiDelegate()
                 _tfliteOptions.addDelegate(_nnApiDelegate)
             }
+
             ChipType.GPU -> {
                 val compatList = CompatibilityList()
                 if (compatList.isDelegateSupportedOnThisDevice) {
@@ -156,6 +159,7 @@ abstract class TFLiteLabelImageClassifier(
                     Log.d(TAG, "GPU not supported. Default to CPU.")
                 }
             }
+
             ChipType.CPU -> {
                 _tfliteOptions.setUseXNNPACK(true)
                 Log.d(TAG, "CPU execution")

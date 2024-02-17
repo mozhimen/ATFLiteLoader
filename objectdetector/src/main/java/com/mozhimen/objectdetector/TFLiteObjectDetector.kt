@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.os.SystemClock
 import android.util.Log
 import com.mozhimen.baseloader.mos.ChipType
-import com.mozhimen.basick.utilk.UtilKGlobal
+import com.mozhimen.basick.utilk.bases.BaseUtilK
 import com.mozhimen.objectdetector.commons.IObjectDetectorListener
 import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.support.image.ImageProcessor
@@ -30,7 +30,7 @@ class TFLiteObjectDetector(
     numThreads: Int,
     chipType: ChipType,
     objectDetectorListener: IObjectDetectorListener?
-) {
+) : BaseUtilK() {
     companion object {
         private const val TAG = "TFLiteObjectDetector>>>>>"
 
@@ -61,7 +61,6 @@ class TFLiteObjectDetector(
     // will not change, a lazy val would be preferable.
     private var _objectDetector: ObjectDetector? = null
     private var _objectDetectorListener: IObjectDetectorListener? = null
-    private val _context = UtilKGlobal.instance.getApp()!!
 
     // Initialize the object detector using current settings on the
     // thread that is using it. CPU and NNAPI delegates can be used with detectors
@@ -83,6 +82,7 @@ class TFLiteObjectDetector(
             ChipType.CPU -> {
                 // Default
             }
+
             ChipType.GPU -> {
                 if (CompatibilityList().isDelegateSupportedOnThisDevice) {
                     baseOptionsBuilder.useGpu()
@@ -90,6 +90,7 @@ class TFLiteObjectDetector(
                     objectDetectorListener?.onError("GPU is not supported on this device")
                 }
             }
+
             ChipType.NNAPI -> {
                 baseOptionsBuilder.useNnapi()
             }

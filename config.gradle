@@ -1,6 +1,6 @@
 ext {
     android = [
-            compileSdk     : 32,
+            compileSdk     : 33,
             applicationId  : "com.mozhimen.tfliteloader",
             minSdk         : 21,
             targetSdk      : 32,

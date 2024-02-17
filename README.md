@@ -192,3 +192,10 @@ implementation 'com.github.mozhimen.SwiftKit:componentk:1.1.1'
 ```
 **综上所述: 集成是不是很简单, 那赶快试试吧**
 
+- 本地引入
+```groovy
+//TFLiteLoader
+include ':TFLiteLoader'
+project(':TFLiteLoader').projectDir = new File("D:\\WorkSpace\\GitHub\\TFLiteLoader")
+include ':TFLiteLoader:tfloader'
+```

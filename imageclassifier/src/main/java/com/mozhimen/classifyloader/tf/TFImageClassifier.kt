@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.os.Trace
 import android.util.Log
 import com.mozhimen.baseloader.mos.Recognition
-import com.mozhimen.basick.utilk.UtilKGlobal
+import com.mozhimen.basick.utilk.bases.BaseUtilK
 import org.tensorflow.Operation
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface
 import java.io.BufferedReader
@@ -32,12 +32,12 @@ class TFImageClassifier(
     private val _imageStd: Float,
     private val _threshold: Float,
     private val _resNum: Int,
-) {
+) : BaseUtilK() {
 
     /*private val MAX_RESULTS = 3
     private val THRESHOLD = 0.1f*/
     private var _inferenceInterface: TensorFlowInferenceInterface =
-        TensorFlowInferenceInterface(UtilKGlobal.instance.getApp()!!.assets, modelPath)
+        TensorFlowInferenceInterface(_context.assets, modelPath)
 
     // Pre-allocated buffers.
     private val _intValues: IntArray

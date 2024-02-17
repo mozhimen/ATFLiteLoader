@@ -6,9 +6,9 @@ import android.graphics.Rect
 import android.os.SystemClock
 import android.os.Trace
 import android.util.Log
-import com.mozhimen.basick.utilk.UtilKGlobal
 import com.mozhimen.baseloader.mos.ChipType
 import com.mozhimen.baseloader.mos.Recognition
+import com.mozhimen.basick.utilk.bases.BaseUtilK
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.metadata.MetadataExtractor
@@ -41,9 +41,8 @@ open class TFLiteImageClassifier(
     resultSize: Int,
     chipType: ChipType,
     numThreads: Int
-) {
+) : BaseUtilK() {
     companion object {
-        private const val TAG = "TFLiteImageClassifier>>>>>"
 
         /**
          * 使用提供的配置创建一个分类器
@@ -66,7 +65,6 @@ open class TFLiteImageClassifier(
         }
     }
 
-    private val _context = UtilKGlobal.instance.getApp()!!
     private val _imageSizeX: Int//得到图像沿x轴的大小 Get the image size along the x axis.
     private val _imageSizeY: Int//得到图像沿y轴的大小 Get the image size along the y axis.
     private val _imageClassifier: ImageClassifier//使用Tensorflow Lite运行模型推断的驱动类实例 An instance of the driver class to run model inference with Tensorflow Lite.

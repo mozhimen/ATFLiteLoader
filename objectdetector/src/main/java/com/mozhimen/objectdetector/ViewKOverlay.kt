@@ -3,10 +3,10 @@ package com.mozhimen.objectdetector
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import com.mozhimen.basick.basek.view.BaseKView
-import com.mozhimen.basick.extsk.dp2px
-import com.mozhimen.basick.extsk.sp2px
-import com.mozhimen.basick.utilk.UtilKRes
+import com.mozhimen.basick.utilk.android.content.UtilKRes
+import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.basick.utilk.android.util.sp2px
+import com.mozhimen.uicorek.bases.BaseViewK
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.*
 import kotlin.math.min
@@ -20,7 +20,7 @@ import kotlin.math.min
  */
 class ViewKOverlay @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : BaseKView(context, attrs, defStyleAttr) {
+) : BaseViewK(context, attrs, defStyleAttr) {
 
     companion object {
         private const val BOUNDING_RECT_TEXT_PADDING = 8
@@ -30,10 +30,10 @@ class ViewKOverlay @JvmOverloads constructor(
     private var _isShowLabel = true
     private var _labelTextSize = 16f.sp2px()
     private var _labelTextColor = Color.WHITE
-    private var _labelBackgroundColor = UtilKRes.getColor(android.R.color.holo_blue_dark)
+    private var _labelBackgroundColor = UtilKRes.gainColor(android.R.color.holo_blue_dark)
     private var _boxType = BOX_TYPE_RECT
     private var _boxLineWidth = 2f.dp2px()
-    private var _boxLineColor = UtilKRes.getColor(android.R.color.holo_blue_dark)
+    private var _boxLineColor = UtilKRes.gainColor(android.R.color.holo_blue_dark)
 
     private var _scaleFactorWidth: Float = 1f
     private var _scaleFactorHeight: Float = 1f
@@ -52,13 +52,13 @@ class ViewKOverlay @JvmOverloads constructor(
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ViewKOverlay)
         _isShowLabel = typedArray.getBoolean(R.styleable.ViewKOverlay_viewKOverlayRect_isShowLabel, _isShowLabel)
         _labelTextSize =
-            typedArray.getDimensionPixelSize(R.styleable.ViewKOverlay_viewKOverlayRect_labelTextSize, _labelTextSize)
+            typedArray.getDimension(R.styleable.ViewKOverlay_viewKOverlayRect_labelTextSize, _labelTextSize)
         _labelTextColor = typedArray.getColor(R.styleable.ViewKOverlay_viewKOverlayRect_labelTextColor, _labelTextColor)
         _labelBackgroundColor =
             typedArray.getColor(R.styleable.ViewKOverlay_viewKOverlayRect_labelBackgroundColor, _labelBackgroundColor)
         _boxType = typedArray.getInteger(R.styleable.ViewKOverlay_viewKOverlayRect_boxType, _boxType)
         _boxLineWidth =
-            typedArray.getDimensionPixelOffset(R.styleable.ViewKOverlay_viewKOverlayRect_boxLineWidth, _boxLineWidth)
+            typedArray.getDimension(R.styleable.ViewKOverlay_viewKOverlayRect_boxLineWidth, _boxLineWidth)
         _boxLineColor = typedArray.getColor(R.styleable.ViewKOverlay_viewKOverlayRect_boxLineColor, _boxLineColor)
         typedArray.recycle()
     }

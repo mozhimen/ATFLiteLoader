@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <com.mozhimen.componentk.cameraxk.CameraXKPreviewView
+        <com.mozhimen.camerak.camerax.CameraKXLayout
             android:id="@+id/image_classifier_preview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
