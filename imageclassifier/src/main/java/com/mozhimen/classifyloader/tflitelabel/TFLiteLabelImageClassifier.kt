@@ -50,8 +50,6 @@ abstract class TFLiteLabelImageClassifier(
     numThreads: Int
 ) : BaseUtilK() {
     companion object {
-        private const val TAG = "TFLiteLoader2>>>>>"
-
         /**
          * 使用提供的配置创建一个分类器
          * Creates a classifier with the provided configuration.

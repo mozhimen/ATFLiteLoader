@@ -17,6 +17,7 @@ import com.mozhimen.camerak.camerax.commons.ICameraXKFrameListener
 import com.mozhimen.camerak.camerax.mos.CameraKXConfig
 import com.mozhimen.camerak.camerax.utils.imageProxyRgba88882bitmapRgba8888
 import com.mozhimen.camerak.camerax.utils.imageProxyYuv4208882bitmapJpeg
+import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
 import com.mozhimen.objectdetector.TFLiteObjectDetector
 import com.mozhimen.objectdetector.commons.IObjectDetectorListener
 import com.mozhimen.tfliteloader.databinding.ActivityObjectDetectionBinding
@@ -51,16 +52,6 @@ class ObjectDetectionActivity :
         }
     }
 
-    override fun initData(savedInstanceState: Bundle?) {
-        ManifestKPermission.requestPermissions(this) {
-            if (it) {
-                super.initData(savedInstanceState)
-            } else {
-                UtilKLaunchActivity.startSettingAppDetails(this)
-            }
-        }
-    }
-
     override fun initView(savedInstanceState: Bundle?) {
         initLiteLoader()
         initCamera()
@@ -76,11 +67,15 @@ class ObjectDetectionActivity :
             )
     }
 
+    @SuppressLint("MissingPermission")
     @OptIn(OPermission_CAMERA::class)
     private fun initCamera() {
         vb.objectDetectionPreview.apply {
             initCameraKX(this@ObjectDetectionActivity, CameraKXConfig(_format, ACameraKXFacing.BACK))
             setCameraXFrameListener(_cameraKXFrameListener)
+            XXPermissionsRequestUtil.requestCameraPermission(this@ObjectDetectionActivity, onGranted = {
+                this.restartCameraKX()
+            })
         }
     }
 

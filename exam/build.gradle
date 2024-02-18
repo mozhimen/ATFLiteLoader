@@ -44,6 +44,7 @@ dependencies {
     implementation project(':SwiftKit:uicorek')
     implementation project(':AUICoreKit:viewk')
     implementation project(':ACameraKit_CameraX:camerak_camerax')
+    implementation project(':AManifestKit_XXPermissions:manifestk_xxpermissions')
 
     implementation project(':imageclassifier')
     implementation project(':objectdetector')

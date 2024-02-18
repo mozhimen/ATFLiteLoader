@@ -36,4 +36,9 @@ include ':ACameraKit_CameraX:camerak_camerax'
 include ':AUICoreKit'
 project(':AUICoreKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AUICoreKit")
 include ':AUICoreKit:viewk'
+//AManifestKit_XXPermissions
+include ':AManifestKit_XXPermissions'
+project(':AManifestKit_XXPermissions').projectDir = new File("D:\\WorkSpace\\GitHub\\AManifestKit_XXPermissions")
+include ':AManifestKit_XXPermissions:manifestk_xxpermissions'
+include ':AManifestKit_XXPermissions:library'
 
