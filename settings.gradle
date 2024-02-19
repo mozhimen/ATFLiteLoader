@@ -32,10 +32,10 @@ include ':SwiftKit:uicorek'
 include ':ACameraKit_CameraX'
 project(':ACameraKit_CameraX').projectDir = new File("D:\\WorkSpace\\GitHub\\ACameraKit_CameraX")
 include ':ACameraKit_CameraX:camerak_camerax'
-//AUICoreKit
-include ':AUICoreKit'
-project(':AUICoreKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AUICoreKit")
-include ':AUICoreKit:viewk'
+////AUICoreKit
+//include ':AUICoreKit'
+//project(':AUICoreKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AUICoreKit")
+//include ':AUICoreKit:viewk'
 //AManifestKit_XXPermissions
 include ':AManifestKit_XXPermissions'
 project(':AManifestKit_XXPermissions').projectDir = new File("D:\\WorkSpace\\GitHub\\AManifestKit_XXPermissions")

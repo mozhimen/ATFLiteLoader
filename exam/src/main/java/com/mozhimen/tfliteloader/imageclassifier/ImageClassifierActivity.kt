@@ -7,10 +7,6 @@ import android.util.Log
 import androidx.camera.core.ImageProxy
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
 import com.mozhimen.basick.lintk.optins.permission.OPermission_CAMERA
-import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.permission.ManifestKPermission
-import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
-import com.mozhimen.basick.utilk.android.app.UtilKLaunchActivity
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyRotate
 import com.mozhimen.camerak.camerax.annors.ACameraKXFacing
 import com.mozhimen.camerak.camerax.annors.ACameraKXFormat
