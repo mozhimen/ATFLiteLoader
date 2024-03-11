@@ -4,12 +4,11 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.camera.core.ImageProxy
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.basick.lintk.optins.OFieldCall_Close
 import com.mozhimen.basick.lintk.optins.permission.OPermission_CAMERA
 import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.permission.ManifestKPermission
 import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
-import com.mozhimen.basick.utilk.android.app.UtilKLaunchActivity
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.camerak.camerax.annors.ACameraKXFacing
 import com.mozhimen.camerak.camerax.annors.ACameraKXFormat
@@ -26,7 +25,7 @@ import java.util.concurrent.locks.ReentrantLock
 
 @APermissionCheck(CPermission.CAMERA)
 class ObjectDetectionActivity :
-    BaseActivityVB<ActivityObjectDetectionBinding>() {
+    BaseActivityVDB<ActivityObjectDetectionBinding>() {
 
     private lateinit var _tfLiteObjectDetector: TFLiteObjectDetector
     private val _objectDetectorListener: IObjectDetectorListener = object : IObjectDetectorListener {
@@ -45,8 +44,8 @@ class ObjectDetectionActivity :
         ) {
             runOnUiThread {
                 results?.let {
-                    vb.objectDetectionOverlay.setObjectRect(imageWidth, imageHeight, results)
-                    vb.objectDetectionTxtCount.text = "钢筋的个数为:${results.size}"
+                    vdb.objectDetectionOverlay.setObjectRect(imageWidth, imageHeight, results)
+                    vdb.objectDetectionTxtCount.text = "钢筋的个数为:${results.size}"
                 }
             }
         }
@@ -70,7 +69,7 @@ class ObjectDetectionActivity :
     @SuppressLint("MissingPermission")
     @OptIn(OPermission_CAMERA::class)
     private fun initCamera() {
-        vb.objectDetectionPreview.apply {
+        vdb.objectDetectionPreview.apply {
             initCameraKX(this@ObjectDetectionActivity, CameraKXConfig(_format, ACameraKXFacing.BACK))
             setCameraXFrameListener(_cameraKXFrameListener)
             XXPermissionsRequestUtil.requestCameraPermission(this@ObjectDetectionActivity, onGranted = {
@@ -83,6 +82,7 @@ class ObjectDetectionActivity :
 
     private var _outputBitmap: Bitmap? = null
 
+    @OptIn(OFieldCall_Close::class)
     private val _cameraKXFrameListener: ICameraXKFrameListener by lazy {
         object : ICameraXKFrameListener {
             private val _reentrantLock = ReentrantLock()

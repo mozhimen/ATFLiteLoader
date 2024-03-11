@@ -25,9 +25,9 @@ include ':objectdetector'
 include ':digitclassifier'
 //SwiftKit
 include ':SwiftKit'
-project(':SwiftKit').projectDir = new File("C:\\Users\\${System.getenv().get("USERNAME")}\\Documents\\GitHub\\SwiftKit")
+project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
-include ':SwiftKit:uicorek'
+include ':SwiftKit:xmlk'
 //ACameraKit_CameraX
 include ':ACameraKit_CameraX'
 project(':ACameraKit_CameraX').projectDir = new File("D:\\WorkSpace\\GitHub\\ACameraKit_CameraX")

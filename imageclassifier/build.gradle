@@ -4,7 +4,8 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    namespace "com.mozhimen.classifyloader"
+    compileSdk 34
 
     defaultConfig {
         minSdk 19

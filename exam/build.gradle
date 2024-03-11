@@ -5,7 +5,8 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    namespace "com.mozhimen.tfliteloader"
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.mozhimen.tfliteloader"
@@ -39,7 +40,7 @@ android {
 
 dependencies {
     implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:uicorek')
+    implementation project(':SwiftKit:xmlk')
     implementation project(':ACameraKit_CameraX:camerak_camerax')
     implementation project(':AManifestKit_XXPermissions:manifestk_xxpermissions')
 

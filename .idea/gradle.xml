@@ -8,14 +8,14 @@
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$USER_HOME$/Documents/GitHub/SwiftKit" />
-            <option value="$USER_HOME$/Documents/GitHub/SwiftKit/basick" />
-            <option value="$USER_HOME$/Documents/GitHub/SwiftKit/uicorek" />
             <option value="$PROJECT_DIR$/../ACameraKit_CameraX" />
             <option value="$PROJECT_DIR$/../ACameraKit_CameraX/camerak_camerax" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions/library" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions/manifestk_xxpermissions" />
+            <option value="$PROJECT_DIR$/../SwiftKit" />
+            <option value="$PROJECT_DIR$/../SwiftKit/basick" />
+            <option value="$PROJECT_DIR$/../SwiftKit/xmlk" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/digitclassifier" />
             <option value="$PROJECT_DIR$/exam" />

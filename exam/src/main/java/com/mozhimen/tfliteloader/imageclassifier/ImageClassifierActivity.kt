@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import androidx.camera.core.ImageProxy
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.permission.OPermission_CAMERA
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyRotate
 import com.mozhimen.camerak.camerax.annors.ACameraKXFacing
@@ -19,7 +19,7 @@ import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
 import com.mozhimen.tfliteloader.databinding.ActivityImageClassifierBinding
 import java.util.concurrent.locks.ReentrantLock
 
-class ImageClassifierActivity : BaseActivityVB<ActivityImageClassifierBinding>() {
+class ImageClassifierActivity : BaseActivityVDB<ActivityImageClassifierBinding>() {
     private lateinit var _tFLiteImageClassifier: TFLiteImageClassifier
 //    private lateinit var _tFLiteLabelImageClassifier: TFLiteLabelImageClassifier
 //    private lateinit var _tFImageClassifier: TFImageClassifier
@@ -38,7 +38,7 @@ class ImageClassifierActivity : BaseActivityVB<ActivityImageClassifierBinding>()
     @SuppressLint("MissingPermission")
     @OptIn(OPermission_CAMERA::class)
     private fun initCamera() {
-        vb.imageClassifierPreview.apply {
+        vdb.imageClassifierPreview.apply {
             initCameraKX(this@ImageClassifierActivity, CameraKXConfig(_format, ACameraKXFacing.BACK))
             setCameraXFrameListener(_cameraKXFrameListener)
             XXPermissionsRequestUtil.requestCameraPermission(this@ImageClassifierActivity, onGranted = {
@@ -75,7 +75,7 @@ class ImageClassifierActivity : BaseActivityVB<ActivityImageClassifierBinding>()
                             objList.forEachIndexed { index, _ ->
                                 _stringBuilder.append("${objList[index].title}: ${objList[index].confidence}").append("\n")
                             }
-                            vb.imageClassifierRes.text = _stringBuilder.toString()
+                            vdb.imageClassifierRes.text = _stringBuilder.toString()
                             _stringBuilder.clear()
                         }
                     }
