@@ -76,7 +76,7 @@ class TFLiteDigitClassifier(
             digitClassifier =
                 ImageClassifier.createFromFileAndOptions(
                     context,
-                    "mnist.tflite",
+                    "model_tflite_meta.tflite",
                     optionsBuilder.build()
                 )
         } catch (e: IllegalStateException) {

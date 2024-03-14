@@ -2,7 +2,13 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="digitclassifier_test">
+        <State />
+      </entry>
       <entry key="exam">
+        <State />
+      </entry>
+      <entry key="imageclassifier_test">
         <State />
       </entry>
     </value>
