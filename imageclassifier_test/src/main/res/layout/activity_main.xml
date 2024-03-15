@@ -2,12 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <com.google.android.material.button.MaterialButton
         style="@style/StyleK_MaterialBtn"
         android:onClick="TFImageClassifier"
         android:text="TFImageClassifier"
+        tools:ignore="HardcodedText,UsingOnClickInXml" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/StyleK_MaterialBtn"
+        android:onClick="TFLiteImageClassifier"
+        android:text="TFLiteImageClassifier"
         tools:ignore="HardcodedText,UsingOnClickInXml" />
 
 </LinearLayout>

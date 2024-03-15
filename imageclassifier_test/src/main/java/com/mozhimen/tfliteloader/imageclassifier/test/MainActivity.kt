@@ -12,4 +12,8 @@ class MainActivity : BaseActivityVB<ActivityMainBinding>() {
     fun TFImageClassifier(view: View) {
         startContext<TFImageClassifierActivity>()
     }
+
+    fun TFLiteImageClassifier(view: View) {
+        startContext<TFLiteImageClassifierActivity>()
+    }
 }
