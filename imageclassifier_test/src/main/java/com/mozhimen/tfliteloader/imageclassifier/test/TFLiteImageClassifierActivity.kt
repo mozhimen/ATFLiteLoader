@@ -30,7 +30,7 @@ class TFLiteImageClassifierActivity : BaseActivityVB<ActivityImageClassifierBind
     }
 
     private fun initLiteLoader() {
-        _tFLiteImageClassifier = TFLiteImageClassifier.create("model_tflite_meta.tflite", resultSize = 1)
+        _tFLiteImageClassifier = TFLiteImageClassifier.create("capnet.tflite", resultSize = 1)
 //        _tFLiteLabelImageClassifier = TFLiteLabelImageClassifier.create("?", "labels.txt", modelType = ModelType.QUANTIZED_EFFICIENTNET)
 //        _tFImageClassifier = TFImageClassifier.create("output_graph.pb", "output_labels.txt", "input", 299, "output", 128f, 128f, 0.1f, 1)
     }

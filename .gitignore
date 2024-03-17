@@ -14,3 +14,4 @@
 .cxx
 local.properties
 imageclassifier_test/src/main/assets/model_tflite_meta.tflite
+imageclassifier_test/src/main/assets/capnet.tflite

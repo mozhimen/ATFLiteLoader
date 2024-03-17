@@ -1,5 +1,6 @@
 package com.mozhimen.tfliteloader.imageclassifier.test
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,7 @@ import com.mozhimen.classifyloader.tf.TFImageClassifier
 import com.mozhimen.tfliteloader.imageclassifier.test.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivityVB<ActivityMainBinding>() {
+
     fun TFImageClassifier(view: View) {
         startContext<TFImageClassifierActivity>()
     }
