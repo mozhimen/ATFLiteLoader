@@ -16,9 +16,22 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs{
+        signingConfig{
+            keyAlias 'mozhimen.keystore'
+            keyPassword 'android'
+            storeFile file('../mozhimen.keystore')
+            storePassword 'android'
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.signingConfig
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.signingConfig
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -46,9 +59,6 @@ dependencies {
     implementation project(':AManifestKit_XXPermissions:manifestk_xxpermissions')
 
     implementation project(':imageclassifier')
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

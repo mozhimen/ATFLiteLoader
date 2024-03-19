@@ -21,8 +21,11 @@ rootProject.name = "tfLiteLoader"
 include ':exam'
 include ':tfloader'
 include ':imageclassifier'
-include ':objectdetector'
+include ':imageclassifier_test'
 include ':digitclassifier'
+include ':digitclassifier_test'
+include ':objectdetector'
+
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
@@ -42,6 +45,4 @@ project(':AManifestKit_XXPermissions').projectDir = new File("D:\\WorkSpace\\Git
 include ':AManifestKit_XXPermissions:manifestk_xxpermissions'
 include ':AManifestKit_XXPermissions:library'
 
-include ':imageclassifier_test'
-include ':digitclassifier'
-include ':digitclassifier_test'
+

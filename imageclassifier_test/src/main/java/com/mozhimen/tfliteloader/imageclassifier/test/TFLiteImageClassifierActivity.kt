@@ -30,7 +30,7 @@ class TFLiteImageClassifierActivity : BaseActivityVB<ActivityImageClassifierBind
     }
 
     private fun initLiteLoader() {
-        _tFLiteImageClassifier = TFLiteImageClassifier.create("capnet.tflite", resultSize = 1)
+        _tFLiteImageClassifier = TFLiteImageClassifier.create("alexnet.tflite", resultSize = 2)
 //        _tFLiteLabelImageClassifier = TFLiteLabelImageClassifier.create("?", "labels.txt", modelType = ModelType.QUANTIZED_EFFICIENTNET)
 //        _tFImageClassifier = TFImageClassifier.create("output_graph.pb", "output_labels.txt", "input", 299, "output", 128f, 128f, 0.1f, 1)
     }
@@ -76,6 +76,7 @@ class TFLiteImageClassifierActivity : BaseActivityVB<ActivityImageClassifierBind
                                 _stringBuilder.append("${objList[index].title}: ${objList[index].confidence}").append("\n")
                             }
                             vb.imageClassifierRes.text = _stringBuilder.toString()
+                            vb.imageClassifierImg.setImageBitmap(_outputBitmap)
                             _stringBuilder.clear()
                         }
                     }

@@ -10,7 +10,10 @@ import com.mozhimen.baseloader.mos.ChipType
 import com.mozhimen.baseloader.mos.Recognition
 import com.mozhimen.basick.utilk.bases.BaseUtilK
 import org.tensorflow.lite.support.common.FileUtil
+import org.tensorflow.lite.support.common.ops.NormalizeOp
+import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.support.image.ops.ResizeOp
 import org.tensorflow.lite.support.metadata.MetadataExtractor
 import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.core.vision.ImageProcessingOptions
@@ -18,7 +21,7 @@ import org.tensorflow.lite.task.vision.classifier.Classifications
 import org.tensorflow.lite.task.vision.classifier.ImageClassifier
 import org.tensorflow.lite.task.vision.classifier.ImageClassifier.ImageClassifierOptions
 import java.io.IOException
-import java.util.ArrayList
+
 
 /**
  * @ClassName TFLiteImageClassifier
@@ -99,6 +102,16 @@ open class TFLiteImageClassifier(
         _imageSizeX = imageShape[2]
     }
 
+    private var _imageProcessor: ImageProcessor? = null
+
+    fun getImageProcessor(targetHeight: Int, targetWidth: Int): ImageProcessor =
+        if (_imageProcessor == null) {
+            ImageProcessor.Builder()
+                .add(ResizeOp(targetHeight, targetWidth, ResizeOp.ResizeMethod.BILINEAR))
+                .add(NormalizeOp(0f, 1f))
+                .build().also { _imageProcessor = it }
+        } else _imageProcessor!!
+
     /**
      * 运行推断并返回分类结果。
      * Runs inference and returns the classification results.
@@ -106,13 +119,15 @@ open class TFLiteImageClassifier(
      * @param sensorOrientation Int
      * @return List<Recognition>
      */
-    fun classify(bitmap: Bitmap, sensorOrientation: Int): List<Recognition> {
+    fun classify(bitmap: Bitmap, sensorOrientation: Int, isNormalize: Boolean = false): List<Recognition> {
         // 将该方法记录为日志, 以便使用systrace进行分析 Logs this method so that it can be analyzed with systrace.
         Trace.beginSection("recognizeImage")
-        val inputImage = TensorImage.fromBitmap(bitmap)
+        var inputImage = TensorImage.fromBitmap(bitmap)
         val width = bitmap.width
         val height = bitmap.height
         val cropSize = width.coerceAtMost(height)
+        if (isNormalize)
+            inputImage = getImageProcessor(height, width).process(inputImage)
         // Task Library 使用双线性插值调整图像的大小, 这与lib_support中使用的最近邻采样算法略有不同 Task Library resize the images using bilinear interpolation, which is slightly different from the nearest neighbor sampling algorithm used in lib_support. See https://github.com/tensorflow/examples/blob/0ef3d93e2af95d325c70ef3bcbbd6844d0631e07/lite/examples/image_classification/android/lib_support/src/main/java/org/tensorflow/lite/examples/classification/tflite/Classifier.java#L310.
         val imageOptions = ImageProcessingOptions.builder()
             .setOrientation(getOrientation(sensorOrientation)) // Set the ROI to the center of the image.
