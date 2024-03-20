@@ -37,7 +37,7 @@ class TFImageClassifierActivity : BaseActivityVB<ActivityImageClassifierBinding>
     }
 
     private fun initLiteLoader() {
-        _tFImageClassifier = TFImageClassifier.create("saved_model.pb", "labels.txt", UtilKAssetManager.getForContext(this), "input", 299, "output", 128f, 128f, 0.1f, 1)
+        _tFImageClassifier = TFImageClassifier.create("saved_model.pb", "labels.txt", UtilKAssetManager.get_ofCxt(this), "input", 299, "output", 128f, 128f, 0.1f, 1)
     }
 
     @SuppressLint("MissingPermission")
