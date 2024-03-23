@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace "com.mozhimen.baseloader"
+    namespace "com.mozhimen.tfloader"
     compileSdk 34
 
     defaultConfig {

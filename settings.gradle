@@ -17,7 +17,7 @@ dependencyResolutionManagement {
         google()
     }
 }
-rootProject.name = "tfLiteLoader"
+rootProject.name = "ATFLiteLoader"
 include ':exam'
 include ':tfloader'
 include ':imageclassifier'
@@ -25,7 +25,6 @@ include ':imageclassifier_test'
 include ':digitclassifier'
 include ':digitclassifier_test'
 include ':objectdetector'
-
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.digitclassifier'
+    namespace 'com.mozhimen.tfloader.digitclassifier'
     compileSdk 34
 
     defaultConfig {

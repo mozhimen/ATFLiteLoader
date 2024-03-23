@@ -8,14 +8,14 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context="com.mozhimen.tfloader.exam.MainActivity">
 
         <com.mozhimen.camerak.camerax.CameraKXLayout
             android:id="@+id/object_detection_preview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.mozhimen.objectdetector.ViewKOverlay
+        <com.mozhimen.tfloader.objectdetector.ViewKOverlay
             android:id="@+id/object_detection_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

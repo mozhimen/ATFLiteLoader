@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.digitclassifier.test'
+    namespace 'com.mozhimen.tfloader.digitclassifier.test'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mozhimen.digitclassifier.test"
+        applicationId "com.mozhimen.tfloader.digitclassifier.test"
         minSdk 21
         targetSdk 34
         versionCode 1

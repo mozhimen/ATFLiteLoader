@@ -10,13 +10,13 @@
         android:theme="@style/Theme.App">
 
         <activity
-            android:name=".objectdetection.ObjectDetectionActivity"
+            android:name="com.mozhimen.tfloader.exam.objectdetection.ObjectDetectionActivity"
             android:exported="false" />
         <activity
-            android:name=".imageclassifier.ImageClassifierActivity"
+            android:name="com.mozhimen.tfloader.exam.imageclassifier.ImageClassifierActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.mozhimen.tfloader.exam.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

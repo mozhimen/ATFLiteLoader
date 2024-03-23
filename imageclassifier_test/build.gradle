@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.tfliteloader.imageclassifier.test'
+    namespace 'com.mozhimen.tfloader.imageclassifier.test'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mozhimen.tfliteloader.imageclassifier.test"
+        applicationId "com.mozhimen.tfloader.imageclassifier.test"
         minSdk 21
         targetSdk 34
         versionCode 1

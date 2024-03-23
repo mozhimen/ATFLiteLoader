@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TfLiteLoader">
         <activity
-            android:name=".MainActivity"
+            android:name="com.mozhimen.tfloader.imageclassifier.test.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,10 +18,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TFLiteImageClassifierActivity"
+            android:name="com.mozhimen.tfloader.imageclassifier.test.TFLiteImageClassifierActivity"
             android:exported="false"/>
         <activity
-            android:name=".TFImageClassifierActivity"
+            android:name="com.mozhimen.tfloader.imageclassifier.test.TFImageClassifierActivity"
             android:exported="false"/>
     </application>
 

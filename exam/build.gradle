@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace "com.mozhimen.tfliteloader"
+    namespace "com.mozhimen.tfloader.exam"
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mozhimen.tfliteloader"
+        applicationId "com.mozhimen.tfloader.exam"
         minSdk 21
         targetSdk 33
         versionCode 1
