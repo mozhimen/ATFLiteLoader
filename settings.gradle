@@ -45,3 +45,4 @@ include ':AManifestKit_XXPermissions:manifestk_xxpermissions'
 include ':AManifestKit_XXPermissions:library'
 
 
+include ':objectdetection_test'

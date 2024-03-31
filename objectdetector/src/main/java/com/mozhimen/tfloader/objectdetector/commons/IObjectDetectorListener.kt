@@ -1,5 +1,6 @@
 package com.mozhimen.tfloader.objectdetector.commons
 
+import android.graphics.Bitmap
 import org.tensorflow.lite.task.vision.detector.Detection
 
 /**
@@ -12,6 +13,7 @@ import org.tensorflow.lite.task.vision.detector.Detection
 interface IObjectDetectorListener {
     fun onError(error: String)
     fun onResults(
+        bitmap: Bitmap,
         imageWidth: Int,
         imageHeight: Int,
         inferenceTime: Long,

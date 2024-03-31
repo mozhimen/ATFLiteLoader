@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.SystemClock
 import android.util.Log
+import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyCompress
+import com.mozhimen.basick.utilk.android.graphics.compressBitmapAny2bitmapRgb565
 import com.mozhimen.tfloader.mos.ChipType
 import com.mozhimen.basick.utilk.bases.BaseUtilK
 import com.mozhimen.tfloader.objectdetector.commons.IObjectDetectorListener
+import com.mozhimen.tfloader.objectdetector.mos.DetectionResult
 import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
@@ -110,7 +113,7 @@ class TFLiteObjectDetector(
         }
     }
 
-    fun detect(image: Bitmap, imageRotation: Int) {
+    fun detectAsync(bitmap: Bitmap, imageRotation: Int) {
         // Inference time is the difference between the system time at the start and finish of the
         // process
         var inferenceTime = SystemClock.uptimeMillis()
@@ -124,16 +127,46 @@ class TFLiteObjectDetector(
                 .build()
 
         // Preprocess the image and convert it into a TensorImage for detection.
-        val tensorImage = imageProcessor.process(TensorImage.fromBitmap(image))
+        val tensorImage = imageProcessor.process(TensorImage.fromBitmap(bitmap))
 
         val results = _objectDetector?.detect(tensorImage)
         inferenceTime = SystemClock.uptimeMillis() - inferenceTime
         _objectDetectorListener?.onResults(
+            bitmap,
             tensorImage.width,
             tensorImage.height,
             inferenceTime,
             results
         )
+    }
+
+    fun detect(bitmap: Bitmap, imageRotation: Int): DetectionResult {
+        // Inference time is the difference between the system time at the start and finish of the
+        // process
+        var inferenceTime = SystemClock.uptimeMillis()
+
+        // Create preprocessor for the image.
+        // See https://www.tensorflow.org/lite/inference_with_metadata/
+        //            lite_support#imageprocessor_architecture
+        val imageProcessor =
+            ImageProcessor.Builder()
+                .add(Rot90Op(-imageRotation / 90))
+                .build()
+
+        // Preprocess the image and convert it into a TensorImage for detection.
+        val tensorImage = imageProcessor.process(TensorImage.fromBitmap(bitmap))
+
+        val results = _objectDetector?.detect(tensorImage)
+        inferenceTime = SystemClock.uptimeMillis() - inferenceTime
+//        _objectDetectorListener?.onResults(
+//            bitmap,
+//            tensorImage.width,
+//            tensorImage.height,
+//            inferenceTime,
+//            results
+//        )
+        val bitmapNew = bitmap.compressBitmapAny2bitmapRgb565()
+        return DetectionResult(bitmapNew, tensorImage.width, tensorImage.height, inferenceTime, results)
     }
 
     fun close() {

@@ -3,10 +3,9 @@ package com.mozhimen.tfloader.objectdetector
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.sp2px
-import com.mozhimen.objectdetector.R
+import com.mozhimen.basick.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.bases.BaseViewK
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.*
@@ -75,14 +74,14 @@ class ViewKOverlay @JvmOverloads constructor(
         // the size that the captured images will be displayed.
         _scaleFactorWidth = width * 1f / imageWidth
         _scaleFactorHeight = height * 1f / imageHeight
-        invalidate()
+        postInvalidate()
     }
 
     fun clear() {
         _textPaint.reset()
         _textBackgroundPaint.reset()
         _boxPaint.reset()
-        invalidate()
+        postInvalidate()
         initPaint()
     }
 

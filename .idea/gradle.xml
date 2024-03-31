@@ -13,19 +13,20 @@
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions/library" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions/manifestk_xxpermissions" />
-            <option value="$PROJECT_DIR$/../AXmlKit" />
-            <option value="$PROJECT_DIR$/../AXmlKit/viewk" />
-            <option value="$PROJECT_DIR$/../SwiftKit" />
-            <option value="$PROJECT_DIR$/../SwiftKit/basick" />
-            <option value="$PROJECT_DIR$/../SwiftKit/xmlk" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/digitclassifier" />
             <option value="$PROJECT_DIR$/digitclassifier_test" />
             <option value="$PROJECT_DIR$/exam" />
             <option value="$PROJECT_DIR$/imageclassifier" />
             <option value="$PROJECT_DIR$/imageclassifier_test" />
+            <option value="$PROJECT_DIR$/objectdetection_test" />
             <option value="$PROJECT_DIR$/objectdetector" />
             <option value="$PROJECT_DIR$/tfloader" />
+            <option value="$PROJECT_DIR$/../AXmlKit" />
+            <option value="$PROJECT_DIR$/../AXmlKit/viewk" />
+            <option value="$PROJECT_DIR$/../SwiftKit" />
+            <option value="$PROJECT_DIR$/../SwiftKit/basick" />
+            <option value="$PROJECT_DIR$/../SwiftKit/xmlk" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

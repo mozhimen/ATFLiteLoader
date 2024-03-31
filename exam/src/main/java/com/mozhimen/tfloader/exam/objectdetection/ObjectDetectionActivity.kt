@@ -17,9 +17,9 @@ import com.mozhimen.camerak.camerax.mos.CameraKXConfig
 import com.mozhimen.camerak.camerax.utils.imageProxyRgba88882bitmapRgba8888
 import com.mozhimen.camerak.camerax.utils.imageProxyYuv4208882bitmapJpeg
 import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
+import com.mozhimen.tfloader.exam.databinding.ActivityObjectDetectionBinding
 import com.mozhimen.tfloader.objectdetector.TFLiteObjectDetector
 import com.mozhimen.tfloader.objectdetector.commons.IObjectDetectorListener
-import com.mozhimen.tfloader.databinding.ActivityObjectDetectionBinding
 import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.concurrent.locks.ReentrantLock
 
@@ -36,12 +36,7 @@ class ObjectDetectionActivity :
         }
 
         @SuppressLint("SetTextI18n")
-        override fun onResults(
-            imageWidth: Int,
-            imageHeight: Int,
-            inferenceTime: Long,
-            results: MutableList<Detection>?
-        ) {
+        override fun onResults(bitmap: Bitmap, imageWidth: Int, imageHeight: Int, inferenceTime: Long, results: MutableList<Detection>?) {
             runOnUiThread {
                 results?.let {
                     vdb.objectDetectionOverlay.setObjectRect(imageWidth, imageHeight, results)
@@ -96,7 +91,7 @@ class ObjectDetectionActivity :
                         ACameraKXFormat.YUV_420_888 -> _outputBitmap = imageProxy.imageProxyYuv4208882bitmapJpeg()
                     }
                     if (_outputBitmap != null) {
-                        _tfLiteObjectDetector.detect(_outputBitmap!!, imageProxy.imageInfo.rotationDegrees)
+                        _tfLiteObjectDetector.detectAsync(_outputBitmap!!, imageProxy.imageInfo.rotationDegrees)
                     }
                 } finally {
                     _reentrantLock.unlock()

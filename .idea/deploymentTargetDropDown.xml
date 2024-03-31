@@ -11,6 +11,9 @@
       <entry key="imageclassifier_test">
         <State />
       </entry>
+      <entry key="objectdetection_test">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

@@ -16,7 +16,7 @@ import com.mozhimen.camerak.camerax.utils.imageProxyRgba88882bitmapRgba8888
 import com.mozhimen.camerak.camerax.utils.imageProxyYuv4208882bitmapJpeg
 import com.mozhimen.tfloader.imageclassifier.tflite.TFLiteImageClassifier
 import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
-import com.mozhimen.tfloader.databinding.ActivityImageClassifierBinding
+import com.mozhimen.tfloader.exam.databinding.ActivityImageClassifierBinding
 import java.util.concurrent.locks.ReentrantLock
 
 class ImageClassifierActivity : BaseActivityVDB<ActivityImageClassifierBinding>() {
