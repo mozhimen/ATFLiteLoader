@@ -25,6 +25,7 @@ include ':imageclassifier_test'
 include ':digitclassifier'
 include ':digitclassifier_test'
 include ':objectdetector'
+include ':objectdetection_test'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
@@ -32,7 +33,7 @@ include ':SwiftKit:basick'
 include ':SwiftKit:xmlk'
 //ACameraKit_CameraX
 include ':ACameraKit_CameraX'
-project(':ACameraKit_CameraX').projectDir = new File("D:\\WorkSpace\\GitHub\\ACameraKit_CameraX")
+project(':ACameraKit_CameraX').projectDir = new File("D:\\WorkSpace\\GitHub\\ACameraKit")
 include ':ACameraKit_CameraX:camerak_camerax'
 //AXmlKit
 include ':AXmlKit'
@@ -45,4 +46,3 @@ include ':AManifestKit_XXPermissions:manifestk_xxpermissions'
 include ':AManifestKit_XXPermissions:library'
 
 
-include ':objectdetection_test'

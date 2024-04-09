@@ -2,7 +2,6 @@ package com.mozhimen.tfloader.objectdetection.test
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.graphics.RectF
 import android.os.Bundle
 import android.util.Log
 import androidx.camera.core.ImageProxy
@@ -13,8 +12,6 @@ import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyCrop
 import com.mozhimen.basick.utilk.java.util.safeUnlock
-import com.mozhimen.basick.utilk.kotlin.collections.containsBy
-import com.mozhimen.basick.utilk.kotlin.constraint
 import com.mozhimen.camerak.camerax.annors.ACameraKXFacing
 import com.mozhimen.camerak.camerax.annors.ACameraKXFormat
 import com.mozhimen.camerak.camerax.commons.ICameraXKFrameListener
@@ -63,8 +60,8 @@ class ObjectDetectionActivity :
             TFLiteObjectDetector.create(
                 "model.tflite",
                 listener = null,
-                resultSize = 2,
-                threshold = 0.3f
+                resultSize = 1,
+                threshold = 0.4f
             )
     }
 
@@ -100,7 +97,7 @@ class ObjectDetectionActivity :
                     if (_outputBitmap != null) {
                         _detectionRes = _tfLiteObjectDetector.detect(_outputBitmap!!, imageProxy.imageInfo.rotationDegrees)
                         Log.d(TAG, "invoke: _detectionRes $_detectionRes")
-                        if (_detectionRes!!.results?.filterNot { it.categories.containsBy { it.label == "18_01" } || it.categories.containsBy { it.label == "18_02" } }?.isNotEmpty() == true) {
+                        if (_detectionRes!!.results?.isNotEmpty() == true) {
                             vdb.objectDetectionOverlay.setObjectRect(_detectionRes!!.imageWidth, _detectionRes!!.imageHeight, _detectionRes!!.results!!)
                             runOnUiThread {
                                 Log.d(TAG, "invoke: ${_detectionRes!!.bitmap.width}x${_detectionRes!!.bitmap.height} _detectionRes $_detectionRes")
