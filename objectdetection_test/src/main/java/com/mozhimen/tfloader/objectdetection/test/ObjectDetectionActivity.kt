@@ -3,6 +3,7 @@ package com.mozhimen.tfloader.objectdetection.test
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import androidx.camera.core.ImageProxy
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
@@ -19,9 +20,12 @@ import com.mozhimen.camerak.camerax.mos.CameraKXConfig
 import com.mozhimen.camerak.camerax.utils.imageProxyRgba88882bitmapRgba8888
 import com.mozhimen.camerak.camerax.utils.imageProxyYuv4208882bitmapJpeg
 import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
+import com.mozhimen.tfloader.mos.ChipType
 import com.mozhimen.tfloader.objectdetection.test.databinding.ActivityObjectDetectionBinding
 import com.mozhimen.tfloader.objectdetector.TFLiteObjectDetector
+import com.mozhimen.tfloader.objectdetector.commons.IObjectDetectorListener
 import com.mozhimen.tfloader.objectdetector.mos.DetectionResult
+import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.concurrent.locks.ReentrantLock
 
 @APermissionCheck(CPermission.CAMERA)
@@ -61,7 +65,8 @@ class ObjectDetectionActivity :
                 "model.tflite",
                 listener = null,
                 resultSize = 1,
-                threshold = 0.4f
+                threshold = 0.4f,
+                chipType = ChipType.GPU
             )
     }
 
@@ -95,8 +100,9 @@ class ObjectDetectionActivity :
                         ACameraKXFormat.YUV_420_888 -> _outputBitmap = imageProxy.imageProxyYuv4208882bitmapJpeg()
                     }
                     if (_outputBitmap != null) {
+                        val time = System.currentTimeMillis()
                         _detectionRes = _tfLiteObjectDetector.detect(_outputBitmap!!, imageProxy.imageInfo.rotationDegrees)
-                        Log.d(TAG, "invoke: _detectionRes $_detectionRes")
+                        Log.d(TAG, "invoke: _detectionRes $_detectionRes ")
                         if (_detectionRes!!.results?.isNotEmpty() == true) {
                             vdb.objectDetectionOverlay.setObjectRect(_detectionRes!!.imageWidth, _detectionRes!!.imageHeight, _detectionRes!!.results!!)
                             runOnUiThread {

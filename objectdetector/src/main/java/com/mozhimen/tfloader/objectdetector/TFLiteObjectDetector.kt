@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.SystemClock
 import android.util.Log
-import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyCompress
 import com.mozhimen.basick.utilk.android.graphics.compressBitmapAny2bitmapRgb565
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.tfloader.mos.ChipType
 import com.mozhimen.basick.utilk.bases.BaseUtilK
 import com.mozhimen.tfloader.objectdetector.commons.IObjectDetectorListener
@@ -88,8 +88,10 @@ class TFLiteObjectDetector(
 
             ChipType.GPU -> {
                 if (CompatibilityList().isDelegateSupportedOnThisDevice) {
+                    UtilKLogWrapper.w(TAG,"use gpu")
                     baseOptionsBuilder.useGpu()
                 } else {
+                    UtilKLogWrapper.w(TAG,"dont use gpu")
                     objectDetectorListener?.onError("GPU is not supported on this device")
                 }
             }
