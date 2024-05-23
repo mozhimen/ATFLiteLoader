@@ -42,4 +42,5 @@ dependencies {
     api 'org.tensorflow:tensorflow-lite-support:0.3.0'
     api 'org.tensorflow:tensorflow-lite-gpu:2.9.0'
     api 'org.tensorflow:tensorflow-android:1.13.1'
+    api 'org.tensorflow:tensorflow-lite-select-tf-ops:0.0.0-nightly-SNAPSHOT'
 }
