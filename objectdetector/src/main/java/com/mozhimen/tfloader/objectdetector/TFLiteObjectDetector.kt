@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.SystemClock
 import android.util.Log
-import com.mozhimen.basick.utilk.android.graphics.compressBitmapAny2bitmapRgb565
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.tfloader.mos.ChipType
-import com.mozhimen.basick.utilk.bases.BaseUtilK
+import com.mozhimen.kotlin.utilk.android.graphics.compressBitmapAny2bitmapRgb565
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.bases.BaseUtilK
 import com.mozhimen.tfloader.objectdetector.commons.IObjectDetectorListener
 import com.mozhimen.tfloader.objectdetector.mos.DetectionResult
 import org.tensorflow.lite.gpu.CompatibilityList

@@ -3,29 +3,26 @@ package com.mozhimen.tfloader.objectdetection.test
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
 import androidx.camera.core.ImageProxy
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.lintk.optins.OFieldCall_Close
-import com.mozhimen.basick.lintk.optins.permission.OPermission_CAMERA
-import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
-import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyCrop
-import com.mozhimen.basick.utilk.java.util.safeUnlock
+import com.mozhimen.kotlin.utilk.android.graphics.applyBitmapAnyCrop
+import com.mozhimen.kotlin.utilk.java.util.safeUnlock
 import com.mozhimen.camerak.camerax.annors.ACameraKXFacing
 import com.mozhimen.camerak.camerax.annors.ACameraKXFormat
 import com.mozhimen.camerak.camerax.commons.ICameraXKFrameListener
 import com.mozhimen.camerak.camerax.mos.CameraKXConfig
 import com.mozhimen.camerak.camerax.utils.imageProxyRgba88882bitmapRgba8888
 import com.mozhimen.camerak.camerax.utils.imageProxyYuv4208882bitmapJpeg
+import com.mozhimen.kotlin.elemk.android.cons.CPermission
+import com.mozhimen.kotlin.lintk.optins.OFieldCall_Close
+import com.mozhimen.kotlin.lintk.optins.permission.OPermission_CAMERA
+import com.mozhimen.manifestk.permission.annors.APermissionCheck
 import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.tfloader.mos.ChipType
 import com.mozhimen.tfloader.objectdetection.test.databinding.ActivityObjectDetectionBinding
 import com.mozhimen.tfloader.objectdetector.TFLiteObjectDetector
-import com.mozhimen.tfloader.objectdetector.commons.IObjectDetectorListener
 import com.mozhimen.tfloader.objectdetector.mos.DetectionResult
-import org.tensorflow.lite.task.vision.detector.Detection
 import java.util.concurrent.locks.ReentrantLock
 
 @APermissionCheck(CPermission.CAMERA)

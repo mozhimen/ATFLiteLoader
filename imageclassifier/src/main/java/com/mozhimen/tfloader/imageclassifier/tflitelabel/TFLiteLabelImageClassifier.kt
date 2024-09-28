@@ -7,7 +7,7 @@ import android.util.Log
 import com.mozhimen.tfloader.mos.ChipType
 import com.mozhimen.tfloader.imageclassifier.mos.ModelType
 import com.mozhimen.tfloader.mos.Recognition
-import com.mozhimen.basick.utilk.bases.BaseUtilK
+import com.mozhimen.kotlin.utilk.bases.BaseUtilK
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.gpu.CompatibilityList
 import org.tensorflow.lite.gpu.GpuDelegate

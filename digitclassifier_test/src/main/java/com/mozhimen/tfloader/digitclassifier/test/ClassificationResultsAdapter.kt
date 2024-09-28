@@ -20,7 +20,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.digitclassifier.test.databinding.ItemClassificationResultBinding
+import com.mozhimen.tfloader.digitclassifier.test.databinding.ItemClassificationResultBinding
 import org.tensorflow.lite.support.label.Category
 import org.tensorflow.lite.task.vision.classifier.Classifications
 import java.util.Locale

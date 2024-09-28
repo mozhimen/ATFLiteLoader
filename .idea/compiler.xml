@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="ATFLiteLoader.ACameraKit_CameraX.camerak_camerax" target="17" />
+      <module name="ATFLiteLoader.ALibKit_Jetpack.camera" target="17" />
+      <module name="ATFLiteLoader.AManifestKit_XXPermissions.library" target="17" />
+      <module name="ATFLiteLoader.AManifestKit_XXPermissions.manifestk_xxpermissions" target="17" />
+      <module name="ATFLiteLoader.AXmlKit.basic" target="17" />
+      <module name="ATFLiteLoader.AXmlKit.viewk" target="17" />
+      <module name="ATFLiteLoader.digitclassifier" target="17" />
+      <module name="ATFLiteLoader.digitclassifier_test" target="17" />
+      <module name="ATFLiteLoader.exam" target="17" />
+      <module name="ATFLiteLoader.imageclassifier" target="17" />
+      <module name="ATFLiteLoader.imageclassifier_test" target="17" />
+      <module name="ATFLiteLoader.objectdetection_test" target="17" />
+      <module name="ATFLiteLoader.objectdetector" target="17" />
+      <module name="ATFLiteLoader.SwiftKit.basick" target="17" />
+      <module name="ATFLiteLoader.SwiftKit.mvvmk" target="17" />
+      <module name="ATFLiteLoader.SwiftKit.xmlk" target="17" />
+      <module name="ATFLiteLoader.tfloader" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

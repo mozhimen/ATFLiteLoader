@@ -10,10 +10,9 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.viewbinding.BaseActivityVB
-import com.mozhimen.digitclassifier.test.R
+import com.mozhimen.mvvmk.bases.activity.viewbinding.BaseActivityVB
 import com.mozhimen.tfloader.digitclassifier.TFLiteDigitClassifier
-import com.mozhimen.digitclassifier.test.databinding.ActivityDigitClassifierBinding
+import com.mozhimen.tfloader.digitclassifier.test.databinding.ActivityDigitClassifierBinding
 import org.tensorflow.lite.task.vision.classifier.Classifications
 import java.util.Locale
 

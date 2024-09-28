@@ -10,6 +10,8 @@
           <set>
             <option value="$PROJECT_DIR$/../ACameraKit" />
             <option value="$PROJECT_DIR$/../ACameraKit/camerak_camerax" />
+            <option value="$PROJECT_DIR$/../ALibKit_Jetpack" />
+            <option value="$PROJECT_DIR$/../ALibKit_Jetpack/camera" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions/library" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions/manifestk_xxpermissions" />
@@ -23,9 +25,14 @@
             <option value="$PROJECT_DIR$/objectdetector" />
             <option value="$PROJECT_DIR$/tfloader" />
             <option value="$PROJECT_DIR$/../AXmlKit" />
+            <option value="$PROJECT_DIR$/../AXmlKit/basic" />
             <option value="$PROJECT_DIR$/../AXmlKit/viewk" />
+            <option value="$PROJECT_DIR$/../KUtilKit" />
+            <option value="$PROJECT_DIR$/../KUtilKit/utilk_android" />
+            <option value="$PROJECT_DIR$/../KUtilKit/utilk_kotlin" />
             <option value="$PROJECT_DIR$/../SwiftKit" />
             <option value="$PROJECT_DIR$/../SwiftKit/basick" />
+            <option value="$PROJECT_DIR$/../SwiftKit/mvvmk" />
             <option value="$PROJECT_DIR$/../SwiftKit/xmlk" />
           </set>
         </option>

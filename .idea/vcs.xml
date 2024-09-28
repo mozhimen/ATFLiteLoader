@@ -3,8 +3,10 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../ACameraKit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../ALibKit_Jetpack" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../AManifestKit_XXPermissions" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../AXmlKit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../KUtilKit" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../SwiftKit" vcs="Git" />
   </component>
 </project>

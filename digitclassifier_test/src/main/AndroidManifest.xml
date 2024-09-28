@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TfLiteLoader">
         <activity
-            android:name="com.mozhimen.digitclassifier.test.com.mozhimen.tfloader.digitclassifier.test.DigitClassifierActivity"
+            android:name="com.mozhimen.tfloader.digitclassifier.test.DigitClassifierActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

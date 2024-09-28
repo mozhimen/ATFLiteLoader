@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.os.Trace
 import android.util.Log
 import com.mozhimen.tfloader.mos.Recognition
-import com.mozhimen.basick.utilk.bases.BaseUtilK
+import com.mozhimen.kotlin.utilk.bases.BaseUtilK
 import org.tensorflow.Operation
 import org.tensorflow.contrib.android.TensorFlowInferenceInterface
 import java.io.BufferedReader

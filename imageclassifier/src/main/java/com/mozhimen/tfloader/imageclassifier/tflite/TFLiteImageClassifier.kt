@@ -8,7 +8,7 @@ import android.os.Trace
 import android.util.Log
 import com.mozhimen.tfloader.mos.ChipType
 import com.mozhimen.tfloader.mos.Recognition
-import com.mozhimen.basick.utilk.bases.BaseUtilK
+import com.mozhimen.kotlin.utilk.bases.BaseUtilK
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.common.ops.NormalizeOp
 import org.tensorflow.lite.support.image.ImageProcessor

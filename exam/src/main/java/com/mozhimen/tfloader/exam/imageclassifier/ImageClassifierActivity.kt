@@ -5,17 +5,17 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import androidx.camera.core.ImageProxy
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.lintk.optins.permission.OPermission_CAMERA
-import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyRotate
 import com.mozhimen.camerak.camerax.annors.ACameraKXFacing
 import com.mozhimen.camerak.camerax.annors.ACameraKXFormat
 import com.mozhimen.camerak.camerax.commons.ICameraXKFrameListener
 import com.mozhimen.camerak.camerax.mos.CameraKXConfig
 import com.mozhimen.camerak.camerax.utils.imageProxyRgba88882bitmapRgba8888
 import com.mozhimen.camerak.camerax.utils.imageProxyYuv4208882bitmapJpeg
+import com.mozhimen.kotlin.lintk.optins.permission.OPermission_CAMERA
+import com.mozhimen.kotlin.utilk.android.graphics.applyBitmapAnyRotate
 import com.mozhimen.tfloader.imageclassifier.tflite.TFLiteImageClassifier
 import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.tfloader.exam.databinding.ActivityImageClassifierBinding
 import java.util.concurrent.locks.ReentrantLock
 
