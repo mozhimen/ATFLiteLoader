@@ -10,7 +10,7 @@ import android.widget.AdapterView
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.mvvmk.bases.activity.viewbinding.BaseActivityVB
+import com.mozhimen.bindk.bases.viewbinding.activity.BaseActivityVB
 import com.mozhimen.tfloader.digitclassifier.TFLiteDigitClassifier
 import com.mozhimen.tfloader.digitclassifier.test.databinding.ActivityDigitClassifierBinding
 import org.tensorflow.lite.task.vision.classifier.Classifications

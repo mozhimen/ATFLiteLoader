@@ -15,7 +15,7 @@ import com.mozhimen.kotlin.lintk.optins.permission.OPermission_CAMERA
 import com.mozhimen.kotlin.utilk.android.graphics.applyBitmapAnyRotate
 import com.mozhimen.tfloader.imageclassifier.tflite.TFLiteImageClassifier
 import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
-import com.mozhimen.mvvmk.bases.activity.viewbinding.BaseActivityVB
+import com.mozhimen.bindk.bases.viewbinding.activity.BaseActivityVB
 import com.mozhimen.tfloader.imageclassifier.test.databinding.ActivityImageClassifierBinding
 import java.util.concurrent.locks.ReentrantLock
 
