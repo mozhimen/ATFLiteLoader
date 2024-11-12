@@ -16,6 +16,7 @@
       <module name="ATFLiteLoader.objectdetection_test" target="17" />
       <module name="ATFLiteLoader.objectdetector" target="17" />
       <module name="ATFLiteLoader.SwiftKit.basick" target="17" />
+      <module name="ATFLiteLoader.SwiftKit.bindk" target="17" />
       <module name="ATFLiteLoader.SwiftKit.mvvmk" target="17" />
       <module name="ATFLiteLoader.SwiftKit.xmlk" target="17" />
       <module name="ATFLiteLoader.tfloader" target="17" />

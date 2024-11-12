@@ -33,7 +33,7 @@
             <option value="$PROJECT_DIR$/../KUtilKit/utilk_kotlin" />
             <option value="$PROJECT_DIR$/../SwiftKit" />
             <option value="$PROJECT_DIR$/../SwiftKit/basick" />
-            <option value="$PROJECT_DIR$/../SwiftKit/mvvmk" />
+            <option value="$PROJECT_DIR$/../SwiftKit/bindk" />
             <option value="$PROJECT_DIR$/../SwiftKit/xmlk" />
           </set>
         </option>
