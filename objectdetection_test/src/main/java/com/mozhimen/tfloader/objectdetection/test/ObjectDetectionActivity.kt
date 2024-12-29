@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import androidx.camera.core.ImageProxy
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.graphics.applyBitmapAnyCrop
 import com.mozhimen.kotlin.utilk.java.util.safeUnlock
 import com.mozhimen.camerak.camerax.annors.ACameraKXFacing
@@ -18,7 +19,6 @@ import com.mozhimen.kotlin.lintk.optins.OFieldCall_Close
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_CAMERA
 import com.mozhimen.manifestk.permission.annors.APermissionCheck
 import com.mozhimen.manifestk.xxpermissions.XXPermissionsRequestUtil
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.tfloader.mos.ChipType
 import com.mozhimen.tfloader.objectdetection.test.databinding.ActivityObjectDetectionBinding
 import com.mozhimen.tfloader.objectdetector.TFLiteObjectDetector
@@ -59,7 +59,7 @@ class ObjectDetectionActivity :
     private fun initLiteLoader() {
         _tfLiteObjectDetector =
             TFLiteObjectDetector.create(
-                "model.tflite",
+                "model1.tflite",
                 listener = null,
                 resultSize = 1,
                 threshold = 0.4f,
