@@ -10,31 +10,43 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/../ACameraKit" />
-            <option value="$PROJECT_DIR$/../ACameraKit/camerak_camerax" />
+            <option value="$PROJECT_DIR$/../ACameraKit/camerax" />
+            <option value="$PROJECT_DIR$/../ALibKit_Google" />
+            <option value="$PROJECT_DIR$/../ALibKit_Google/material" />
+            <option value="$PROJECT_DIR$/../ALibKit_Jetbrains" />
+            <option value="$PROJECT_DIR$/../ALibKit_Jetbrains/kotlin_stdlib" />
+            <option value="$PROJECT_DIR$/../ALibKit_Jetbrains/kotlinx_coroutines" />
             <option value="$PROJECT_DIR$/../ALibKit_Jetpack" />
+            <option value="$PROJECT_DIR$/../ALibKit_Jetpack/annotation" />
             <option value="$PROJECT_DIR$/../ALibKit_Jetpack/camera" />
+            <option value="$PROJECT_DIR$/../ALibKit_Jetpack/core" />
+            <option value="$PROJECT_DIR$/../ALibKit_Jetpack/databinding" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions/library" />
             <option value="$PROJECT_DIR$/../AManifestKit_XXPermissions/manifestk_xxpermissions" />
+            <option value="$PROJECT_DIR$/../ASwiftKit" />
+            <option value="$PROJECT_DIR$/../ASwiftKit/basick" />
+            <option value="$PROJECT_DIR$/../ASwiftKit/bindk" />
+            <option value="$PROJECT_DIR$/../ASwiftKit/xmlk" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/digitclassifier" />
-            <option value="$PROJECT_DIR$/digitclassifier_test" />
+            <option value="$PROJECT_DIR$/digitclassifier/test" />
             <option value="$PROJECT_DIR$/exam" />
             <option value="$PROJECT_DIR$/imageclassifier" />
-            <option value="$PROJECT_DIR$/imageclassifier_test" />
-            <option value="$PROJECT_DIR$/objectdetection_test" />
+            <option value="$PROJECT_DIR$/imageclassifier/test" />
+            <option value="$PROJECT_DIR$/imagecorrector" />
+            <option value="$PROJECT_DIR$/imagecorrector/test" />
+            <option value="$PROJECT_DIR$/normalize" />
+            <option value="$PROJECT_DIR$/normalize/test" />
             <option value="$PROJECT_DIR$/objectdetector" />
+            <option value="$PROJECT_DIR$/objectdetector/test" />
             <option value="$PROJECT_DIR$/tfloader" />
             <option value="$PROJECT_DIR$/../AXmlKit" />
             <option value="$PROJECT_DIR$/../AXmlKit/basic" />
             <option value="$PROJECT_DIR$/../AXmlKit/viewk" />
             <option value="$PROJECT_DIR$/../KUtilKit" />
-            <option value="$PROJECT_DIR$/../KUtilKit/utilk_android" />
-            <option value="$PROJECT_DIR$/../KUtilKit/utilk_kotlin" />
-            <option value="$PROJECT_DIR$/../SwiftKit" />
-            <option value="$PROJECT_DIR$/../SwiftKit/basick" />
-            <option value="$PROJECT_DIR$/../SwiftKit/bindk" />
-            <option value="$PROJECT_DIR$/../SwiftKit/xmlk" />
+            <option value="$PROJECT_DIR$/../KUtilKit/android" />
+            <option value="$PROJECT_DIR$/../KUtilKit/kotlin" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

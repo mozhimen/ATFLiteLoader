@@ -39,9 +39,9 @@ android {
 }
 
 dependencies {
-    implementation project(':SwiftKit:bindk')
-    implementation project(':SwiftKit:xmlk')
-    implementation project(':ACameraKit_CameraX:camerak_camerax')
+    implementation project(':ASwiftKit:bindk')
+    implementation project(':ASwiftKit:xmlk')
+    implementation project(':ACameraKit:camerax')
     implementation project(':AManifestKit_XXPermissions:manifestk_xxpermissions')
 
     implementation project(':imageclassifier')

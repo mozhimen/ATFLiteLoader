@@ -21,25 +21,46 @@ rootProject.name = "ATFLiteLoader"
 include ':exam'
 include ':tfloader'
 include ':imageclassifier'
-include ':imageclassifier_test'
+include ':imageclassifier:test'
 include ':digitclassifier'
-include ':digitclassifier_test'
+include ':digitclassifier:test'
 include ':objectdetector'
-include ':objectdetection_test'
+include ':objectdetector:test'
+include ':imagecorrector'
+include ':imagecorrector:test'
+include ':normalize'
+include ':normalize:test'
+//ALibKit_Google
+include ':ALibKit_Google'
+project(':ALibKit_Google').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Google")
+include ':ALibKit_Google:material'
+//ALibKit_Jetbrains
+include ':ALibKit_Jetbrains'
+project(':ALibKit_Jetbrains').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetbrains")
+include ':ALibKit_Jetbrains:kotlin_stdlib'
+include ':ALibKit_Jetbrains:kotlinx_coroutines'
 //ALibKit_Jetpack
 include ':ALibKit_Jetpack'
 project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
+include ':ALibKit_Jetpack:annotation'
 include ':ALibKit_Jetpack:camera'
-//SwiftKit
-include ':SwiftKit'
-project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
-include ':SwiftKit:bindk'
-include ':SwiftKit:basick'
-include ':SwiftKit:xmlk'
-//ACameraKit_CameraX
-include ':ACameraKit_CameraX'
-project(':ACameraKit_CameraX').projectDir = new File("D:\\WorkSpace\\GitHub\\ACameraKit")
-include ':ACameraKit_CameraX:camerak_camerax'
+include ':ALibKit_Jetpack:databinding'
+include ':ALibKit_Jetpack:core'
+//KUtilKit
+include ':KUtilKit'
+project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
+include ':KUtilKit:android'
+include ':KUtilKit:kotlin'
+//ASwiftKit
+include ':ASwiftKit'
+project(':ASwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASwiftKit")
+include ':ASwiftKit:bindk'
+include ':ASwiftKit:basick'
+include ':ASwiftKit:xmlk'
+//ACameraKit
+include ':ACameraKit'
+project(':ACameraKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ACameraKit")
+include ':ACameraKit:camerax'
 //AXmlKit
 include ':AXmlKit'
 project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
@@ -50,10 +71,5 @@ include ':AManifestKit_XXPermissions'
 project(':AManifestKit_XXPermissions').projectDir = new File("D:\\WorkSpace\\GitHub\\AManifestKit_XXPermissions")
 include ':AManifestKit_XXPermissions:manifestk_xxpermissions'
 include ':AManifestKit_XXPermissions:library'
-//KUtilKit
-include ':KUtilKit'
-project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
-include ':KUtilKit:utilk_android'
-include ':KUtilKit:utilk_kotlin'
 
 

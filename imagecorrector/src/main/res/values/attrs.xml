@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageKSmartCrop">
+        <attr name="imageKSmartCrop_MaskAlpha" format="integer"/>
+        <attr name="imageKSmartCrop_ShowGuideLine" format="boolean"/>
+        <attr name="imageKSmartCrop_LineColor" format="color"/>
+        <attr name="imageKSmartCrop_LineWidth" format="dimension"/>
+        <attr name="imageKSmartCrop_ShowMagnifier" format="boolean"/>
+        <attr name="imageKSmartCrop_MagnifierCrossColor" format="color"/>
+        <attr name="imageKSmartCrop_GuideLineWidth" format="dimension"/>
+        <attr name="imageKSmartCrop_GuideLineColor" format="color"/>
+        <attr name="imageKSmartCrop_PointFillColor" format="color"/>
+        <attr name="imageKSmartCrop_PointFillAlpha" format="integer"/>
+        <attr name="imageKSmartCrop_PointColor" format="color"/>
+        <attr name="imageKSmartCrop_PointWidth" format="dimension"/>
+        <attr name="imageKSmartCrop_ShowEdgeMidPoint" format="boolean"/>
+        <attr name="imageKSmartCrop_AutoScanEnable" format="boolean"/>
+    </declare-styleable>
+</resources>
